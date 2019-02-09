@@ -1,0 +1,28 @@
+<div class="level">
+	<div class="number">
+		<div>{{id}}</div>
+		<div class="wingid">{{wingId}}</div>
+	</div>
+	<div class="image">
+		<img src="http://qc.zemanzo.nl/265pThumbnails/{{wingId}}.jpg"/>
+	</div>
+	<div class="title">
+		{{title}}
+	</div>
+	<div class="time">
+		{{#records.time}}
+			<div class="entry">
+				<div>{{time}}</div>
+				<div>{{user.name}}</div>
+			</div>
+		{{/records.time}}
+	</div>
+	<div class="shift">
+		<div class="entry{{#records.shift.unset}} unset{{/records.shift.unset}}">
+			<div>{{records.shift.amount}}</div>
+			{{^records.shift.unset}}
+				<div>{{records.shift.user.name}}</div>
+			{{/records.shift.unset}}
+		</div>
+	</div>
+</div>

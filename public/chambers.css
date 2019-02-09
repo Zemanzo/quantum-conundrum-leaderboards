@@ -1,0 +1,243 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	height:100vh;
+	width:100%;
+	font-family:Segoe UI;
+	font-size:14px;
+	background:#0c090c;
+	color:#eee;
+	min-width:605px;
+	display:flex;
+	flex-direction:column;
+
+	--bluewing:#3e88b3;
+	--bluewing-dark:#24333c;
+	--yellowwing:#e1e100;
+	--yellowwing-dark:#5e5e36;
+	--redwing:#b33e3e;
+	--redwing-dark:#541818;
+	overflow-x: hidden;
+}
+
+a {
+    text-decoration:none;
+    color:inherit;
+}
+
+a:hover,
+a:focus {
+	text-decoration:underline;
+}
+
+header {
+	display:flex;
+	align-items:center;
+	background:linear-gradient(to bottom, #110612 40%, #9430d122 100%);
+	border-bottom:#170026 2px solid;
+	min-height: 54px;
+}
+
+	h1 {
+		text-transform:uppercase;
+		margin:8px 16px;
+		display:flex;
+		align-items:center;
+		font-size:2.2em;
+		font-family:"Yanone Kaffeesatz", sans-serif;
+		margin-right:2em;
+	}
+
+		h1 img {
+			height:1.2em;
+			margin-right:.4em;
+		}
+
+		h1 span {
+			margin-bottom:-6px;
+		}
+
+	nav {
+		display:flex;
+		line-height:29px;
+	}
+
+		nav b {
+			color:#9430d1;
+			border-bottom:#9430d1 2px solid;
+		}
+
+		nav a,
+		nav b {
+			font-family:Segoe UI;
+			font-size:15px;
+			display:inline-block;
+			line-height:29px;
+			user-select:none;
+			margin:0px 15px;
+		}
+
+		nav a:hover {
+			text-decoration:none;
+			border-bottom:#eee 1px solid;
+		}
+
+#totals {
+	display:none;
+}
+
+#list {
+	margin:16px;
+}
+
+	.wing {
+		display:flex;
+		flex-direction:column;
+		padding:8px;
+	}
+
+	.wing.blue .level { background-color:var(--bluewing); }
+	.wing.blue .wingtitle { color:var(--bluewing); }
+	.wing.blue .level .number { color:var(--bluewing-dark); }
+
+	.wing.yellow .level { background-color:var(--yellowwing); }
+	.wing.yellow .wingtitle { color:var(--yellowwing); }
+	.wing.yellow .level .number { color:var(--yellowwing-dark); }
+	.wing.yellow { color:#222; }
+	.wing.yellow .level .time,
+	.wing.yellow .level .shift { text-shadow: none; }
+
+	.wing.red .level { background-color:var(--redwing); }
+	.wing.red .wingtitle { color:var(--redwing); }
+	.wing.red .level .number { color:var(--redwing-dark); }
+
+	.levels {
+		display:flex;
+		flex-direction:column;
+		margin-left:4px;
+		flex:1;
+	}
+
+	.wingtitle {
+		font-family:Oswald, sans-serif;
+		font-weight:300;
+		font-size:2.5em;
+		color:#555;
+		margin-left:1px;
+	}
+
+	.level {
+		display:flex;
+		height:60px;
+		margin-bottom:2px;
+		background-color:#555;
+	}
+
+		.level .image {
+			order: -1;
+		}
+
+			.level .image img {
+				display:block;
+				margin-top:2px;
+				margin-left:2px;
+				height:56px;
+				width:auto;
+				object-fit: cover;
+			}
+
+			.level .image:active {
+				display:flex;
+				justify-content:center;
+				align-items:center;
+				position:fixed;
+				left:0px;
+				top:0px;
+				width:100vw;
+				height:100vh;
+				z-index:2;
+				background:rgba(0, 0, 0, 0.5);
+			}
+
+			.level .image:active img {
+				height:auto;
+				width:265px;
+				transform:scale(2);
+			}
+
+		.level .title {
+			width:420px;
+			font-weight:200;
+		}
+
+		.level .number {
+			padding-left:4px;
+			text-align:center;
+			color:#161616;
+			font-size:2em;
+			flex-direction:column;
+			justify-content:center;
+			width:3ch;
+		}
+			.level .number .wingid {
+				display:none;
+				font-size:.35em;
+				opacity:.7;
+				margin-top:2px;
+			}
+			.level .number:hover .wingid {
+				display:block;
+			}
+
+		.level .time,
+		.level .shift {
+			text-shadow: 0px 1px 1px #363636;
+		}
+
+		.level .number,
+		.level .title {
+			font-family:"Oswald", sans-serif;
+			line-height:1;
+			display:flex;
+			align-items:center;
+		}
+
+		.level .title {
+			padding:0px 8px;
+			font-size:1.6em;
+			height:2.5em;
+			text-transform:uppercase;
+		}
+
+		.level .time,
+		.level .shift {
+			flex:1;
+			display:flex;
+		}
+
+		.level .entry {
+			min-width:150px;
+			margin-left:2px;
+		}
+			.level .entry:nth-child(2) { opacity: .85 }
+			.level .entry:nth-child(3) { opacity: .7 }
+
+			.level .entry > div:nth-child(1) {
+				font-size:2em;
+				font-weight:500;
+				font-family:"Oswald", sans-serif;
+			}
+			.level .entry > div:nth-child(2) {
+				margin-top:-2px;
+			}
+
+			.level .entry.unset {
+				font-style:italic;
+			}
+
+.blackoutline {
+    text-shadow: 0px -1px #000, 1px -1px #000, 1px 0px #000, 1px 1px #000, 0px 1px #000, -1px 1px #000, -1px 0px #000, -1px -1px #000;
+}
