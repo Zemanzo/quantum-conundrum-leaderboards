@@ -1,13 +1,13 @@
 <div class="level">
 	<div class="number">
-		<div>{{id}}</div>
+		<div>{{number}}</div>
 		<div class="wingid">{{wingId}}</div>
 	</div>
 	<div class="image">
 		<img src="http://qc.zemanzo.nl/265pThumbnails/{{wingId}}.jpg"/>
 	</div>
 	<div class="title">
-		{{title}}
+		{{#weblink}}<a href="{{weblink}}">{{/weblink}}{{title}}{{#weblink}}</a>{{/weblink}}
 	</div>
 	<div class="time">
 		{{#records.time}}

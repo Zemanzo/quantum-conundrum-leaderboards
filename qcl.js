@@ -11,7 +11,7 @@ console.log((new Date()).toString().magenta);
 /* SRC API requests */
 let request = require("request");
 
-function srcApiRequest(params, callback){
+function srcApiRequest(params){
 	let options = {
 		url: `https://www.speedrun.com/api/v1/${params}`,
 		headers: {
@@ -19,73 +19,211 @@ function srcApiRequest(params, callback){
 		}
 	};
 
-	request(options, callback);
+	return new Promise(function(resolve, reject) {
+		request(options, function(error, response, body) {
+			if (
+				(error && response.statusCode === 200)
+				||
+				(body.substr(0,1) === '<' && response.statusCode === 200)
+			) {
+				reject(error, response);
+			} else {
+				resolve(JSON.parse(body));
+			}
+		});
+	});
+}
+
+function getLevelRuns(levelId){
+	return srcApiRequest(`runs?level=${levelId}&status=verified`);
 }
 
 /* Database */
 let sqlite3 = require("better-sqlite3");
 let db = new sqlite3(config.database.path);
+let wings;
 
 // Add levels, this does assume levels are ordered correctly in the data returned from the API
-db.prepare(`
-	CREATE TABLE IF NOT EXISTS levels (
-		id INTEGER UNIQUE,
-		apiId TEXT,
-		wing TEXT,
-		wingId TEXT,
-		title TEXT,
-		speedruncomLink TEXT,
-		steamtimeLink INTEGER,
-		steamshiftLink INTEGER,
-		PRIMARY KEY("id")
-	)
-	`).run();
+let dataReady = new Promise((resolve, reject)=>{
+	db.prepare(`
+		CREATE TABLE IF NOT EXISTS levels (
+			id INTEGER UNIQUE,
+			apiId TEXT,
+			wing TEXT,
+			wingId TEXT,
+			title TEXT,
+			speedruncomLink TEXT,
+			steamtimeLink INTEGER,
+			steamshiftLink INTEGER,
+			PRIMARY KEY("id")
+		)
+		`).run();
 
-let levelCount = db.prepare("SELECT Count(*) FROM levels").get();
+	let levelCount = db.prepare("SELECT Count(*) FROM levels").get();
 
-if (levelCount['Count(*)'] === 0) {
-	console.log(currentHourString() + ' No levels found in database. Fetching data..'.yellow);
+	if (levelCount['Count(*)'] === 0) {
+		console.log(currentHourString() + ' No levels found in database. Fetching data...'.yellow);
 
-	srcApiRequest("games/9d3eqg1l/levels", function(error, response, body) {
-		if (!error && response.statusCode === 200) {
-			let levels = JSON.parse(body);
-			let ilData = require("./il-data.json");
+		return srcApiRequest("games/9d3eqg1l/levels")
+			.then((body) => {
+				let levels = body;
+				let ilData = require("./il-data.json");
 
-			db.prepare("BEGIN TRANSACTION").run();
+				console.log("YAAA".green, levels);
 
-			for (let i = 0; i < levels.data.length; i++){
-				let level = levels.data[i];
-				db.prepare(
-					`INSERT OR ABORT INTO levels (
-						id,
-						apiId,
-						wing,
-						wingId,
-						title,
-						speedruncomLink,
-						steamtimeLink,
-						steamshiftLink
-						) VALUES(?,?,?,?,?,?,?,?)`,
-				).run([
-					i,
-					level.id,
-					ilData.data[i].wing,
-					ilData.data[i].levelID,
-					level.name,
-					level.weblink,
-					`http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/${ilData.data[i].speedUrl}`,
-					`http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/${ilData.data[i].shiftsUrl}`
-				]);
+				db.prepare("BEGIN TRANSACTION").run();
+
+				for (let i = 0; i < levels.data.length; i++){
+					let level = levels.data[i];
+					db.prepare(
+						`INSERT OR ABORT INTO levels (
+							id,
+							apiId,
+							wing,
+							wingId,
+							title,
+							speedruncomLink,
+							steamtimeLink,
+							steamshiftLink
+							) VALUES(?,?,?,?,?,?,?,?)`,
+					).run([
+						i,
+						level.id,
+						ilData.data[i].wing,
+						ilData.data[i].levelID,
+						level.name,
+						level.weblink,
+						`http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/${ilData.data[i].speedUrl}`,
+						`http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/${ilData.data[i].shiftsUrl}`
+					]);
+				}
+
+				db.prepare("COMMIT TRANSACTION").run();
+
+				console.log(currentHourString() + ' Levels successfully added to database!'.green);
+
+				return resolve();
 			}
+		)
+		.catch((error) => {
+			console.log(currentHourString() + ' Something went wrong when adding levels to the database... :/'.red);
+			console.log(currentHourString() + error);
 
-			db.prepare("COMMIT TRANSACTION").run();
+			return reject();
+		});
+	} else {
+		console.log(currentHourString() + ' Levels already in database!'.green, levelCount);
 
-			console.log(currentHourString() + ' Levels successfully added to database!'.green);
-		}
-	});
-} else {
-	console.log(currentHourString() + ' Levels already in database!'.green, levelCount);
-}
+		return resolve();
+	}
+})
+.then(()=>{
+	// Build wings
+	wings = [
+		{
+			title: "BLUE WING",
+			className: "blue",
+			levels: []
+		},
+		{
+			title: "YELLOW WING",
+			className: "yellow",
+			levels: []
+		},
+		{
+			title: "RED WING",
+			className: "red",
+			levels: []
+		},
+		{
+			title: "UBER IDS",
+			className: "uberids",
+			levels: []
+		},
+		{
+			title: "THE DESMOND DEBACLE",
+			className: "desmonddebacle",
+			levels: []
+		},
+		{
+			title: "IKE-ARAMBA!",
+			className: "ikearamba",
+			levels: []
+		},
+	];
+
+	let levels = db.prepare("SELECT * FROM levels").all();
+
+	for (level of levels){
+		level.number = pad(level.id + 1,2)
+		let wingIndex = wings.findIndex(wing => wing.className === level.wing);
+		wings[wingIndex].levels.push(level);
+	}
+
+	console.log(currentHourString() + ' Adding runs...'.yellow);
+
+	// Add runs
+	db.prepare(`
+		CREATE TABLE IF NOT EXISTS runs (
+			apiId TEXT UNIQUE,
+			levelId TEXT,
+			userId TEXT,
+			lagAbuse INTEGER,
+			time REAL,
+			date TEXT,
+			PRIMARY KEY("apiId")
+		)
+		`).run();
+
+	let runPromises = [];
+
+	db.prepare("BEGIN TRANSACTION").run();
+
+	for (level of levels){
+		runPromises.push(
+			getLevelRuns(level.apiId)
+				.then((body) => {
+					let runs = body.data;
+
+					for (run of runs){
+
+						db.prepare(
+							`INSERT OR REPLACE INTO runs (
+								apiId,
+								levelId,
+								userId,
+								lagAbuse,
+								time,
+								date
+								) VALUES(?,?,?,?,?,?)`,
+						).run([
+							run.id,
+							run.level,
+							run.players[0].id,
+							(run.values["r8rg5zrn"] === "5q8ze9gq" ? 0 : 1), // lag abuse, "5q8ze9gq" is NO lag abuse used.
+							run.times.primary_t,
+							run.date || run.submitted.substr(0, run.submitted.indexOf("T"))
+						]);
+
+					}
+
+					return true;
+				},
+				(error) => {
+					return error;
+				})
+				.catch((error)=>{
+					console.log(error);
+				})
+		);
+	}
+
+	return Promise.all(runPromises);
+
+	return true;
+}).then(() => {
+	db.prepare("COMMIT TRANSACTION").run();
+})
 
 /* Express connections */
 let mustacheExpress = require("mustache-express");
@@ -110,47 +248,74 @@ app.get("/", function (req, res) {
 	res.render("index");
 });
 
-let wings = [
-	{
-		title: "BLUE WING",
-		className: "blue",
-		levels: []
-	},
-	{
-		title: "YELLOW WING",
-		className: "yellow",
-		levels: []
-	},
-	{
-		title: "RED WING",
-		className: "red",
-		levels: []
-	},
-	{
-		title: "UBER IDS",
-		className: "uberids",
-		levels: []
-	},
-	{
-		title: "THE DESMOND DEBACLE",
-		className: "desmonddebacle",
-		levels: []
-	},
-	{
-		title: "IKE-ARAMBA!",
-		className: "ikearamba",
-		levels: []
-	},
-];
+app.get("/chambers", function (req, res) {
+	res.redirect('/individual-levels');
+});
 
-let levels = db.prepare("SELECT * FROM levels").all();
+app.get("/individual-levels", function (req, res) {
+	let runs = db.prepare(`
+		SELECT levelId, userId, time
+		FROM runs r
+		WHERE r.apiId IN (
+			SELECT apiId
+			FROM runs
+			WHERE levelId = r.levelId AND lagAbuse = 0
+			ORDER BY time
+			LIMIT 3
+		);
+	`).all();
 
-for (level of levels){
-	let wingIndex = wings.findIndex(wing => wing.className === level.wing);
-	wings[wingIndex].levels.push(level);
+	let runDictionary = {};
+	for (run of runs){
+		if (!runDictionary[run.levelId]) runDictionary[run.levelId] = [];
+		runDictionary[run.levelId].push(run);
+	}
+
+	for (wing of wings){
+		for (level of wing.levels) {
+			level.records = {
+				time: []
+			};
+
+			if (runDictionary[level.apiId]){
+				for (records of runDictionary[level.apiId]){
+					level.records.time.push(
+						{
+							time: records.time.toFixed(2),
+							user: {
+								name: records.userId
+							}
+						}
+					);
+				}
+			}
+		}
+	}
+
+	res.render("individual-levels", { wings });
+});
+
+app.get("/about", function (req, res) {
+	res.render("about");
+});
+
+dataReady.then(()=>{
+	let server = app.listen(config.express.port, function () {
+		let port = server.address().port;
+		console.log(currentHourString()+" EXPRESS: Listening at port %s", port);
+	});
+});
+
+function pad(num,size) {
+	let s = "000000000" + num;
+	return s.substr(s.length-size);
 }
 
-console.log(wings[0].levels)
+function currentHourString(){
+	let date = new Date();
+	return "["+pad(date.getHours(),2)+":"+pad(date.getMinutes(),2)+"]";
+}
+
 
 // let wings = [
 // 	{
@@ -218,26 +383,3 @@ console.log(wings[0].levels)
 // 		]
 // 	}
 // ];
-
-app.get("/chambers", function (req, res) {
-	res.redirect('/individual-levels');
-});
-
-app.get("/individual-levels", function (req, res) {
-	res.render("individual-levels", { wings });
-});
-
-let server = app.listen(config.express.port, function () {
-	let port = server.address().port;
-	console.log(currentHourString()+" EXPRESS: Listening at port %s", port);
-});
-
-function pad(num,size) {
-    let s = "000000000" + num;
-    return s.substr(s.length-size);
-}
-
-function currentHourString(){
-	let date = new Date();
-	return "["+pad(date.getHours(),2)+":"+pad(date.getMinutes(),2)+"]";
-}
