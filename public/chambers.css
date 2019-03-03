@@ -131,8 +131,12 @@ body {
 			}
 
 		.level .title {
+			padding:0px 8px;
+			font-size:1.6em;
+			height:2.5em;
+			text-transform:uppercase;
 			width:420px;
-			font-weight:200;
+			font-weight:400;
 		}
 
 		.level .number {
@@ -154,11 +158,6 @@ body {
 				display:block;
 			}
 
-		.level .time,
-		.level .shift {
-			text-shadow: 0px 1px 1px #363636;
-		}
-
 		.level .number,
 		.level .title {
 			font-family:"Oswald", sans-serif;
@@ -167,17 +166,11 @@ body {
 			align-items:center;
 		}
 
-		.level .title {
-			padding:0px 8px;
-			font-size:1.6em;
-			height:2.5em;
-			text-transform:uppercase;
-		}
-
 		.level .time,
 		.level .shift {
 			flex:1;
 			display:flex;
+			text-shadow: 0px 1px 1px #363636;
 		}
 
 		.level .entry {
@@ -185,16 +178,23 @@ body {
 			min-width:150px;
 			margin-left:2px;
 		}
-			.level .entry:nth-child(2) { opacity: .85 }
-			.level .entry:nth-child(3) { opacity: .7 }
+			.level .entry:nth-child(2) { opacity: .85; }
+			.level .entry:nth-child(2) > div:nth-child(1) { font-size:1.75em; }
+			.level .entry:nth-child(3) { opacity: .7; }
+			.level .entry:nth-child(3) > div:nth-child(1) { font-size:1.5em; }
+			.level .entry:nth-child(4) { opacity: .55; }
+			.level .entry:nth-child(4) > div:nth-child(1) { font-size:1.25em; }
+			.level .entry:nth-child(5) { opacity: .4; }
+			.level .entry:nth-child(5) > div:nth-child(1) { font-size:1em; }
 
 			.level .entry > div:nth-child(1) {
 				font-size:2em;
-				font-weight:500;
+				font-weight:100;
 				font-family:"Oswald", sans-serif;
 			}
 			.level .entry > div:nth-child(2) {
 				margin-top:-2px;
+				font-weight:600;
 			}
 
 			.level .entry.unset {

@@ -1,14 +1,14 @@
 let config = require("./config");
 let pjson = require("./package.json");
 
-/* Colors */
-let colors = require("colors");
+// Colors
+require("colors");
 
 console.log("Quantum Conundrum Leaderboards".magenta);
 console.log("  by ".magenta + "Z".green + "emanz" + "o".green);
 console.log((new Date()).toString().magenta);
 
-/* SRC API requests */
+// SRC API requests
 let request = require("request");
 
 function srcApiRequest(params){
@@ -28,7 +28,11 @@ function srcApiRequest(params){
 			) {
 				reject(error, response);
 			} else {
-				resolve(JSON.parse(body));
+				try {
+					resolve(JSON.parse(body));
+				} catch {
+					console.error(currentHourString() + "Request body is not JSON")
+				}
 			}
 		});
 	});
@@ -38,7 +42,7 @@ function getLevelRuns(levelId){
 	return srcApiRequest(`runs?level=${levelId}&status=verified`);
 }
 
-/* Database */
+// Database
 let sqlite3 = require("better-sqlite3");
 let db = new sqlite3(config.database.path);
 let wings;
@@ -179,51 +183,87 @@ let dataReady = new Promise((resolve, reject)=>{
 
 	db.prepare("BEGIN TRANSACTION").run();
 
-	for (level of levels){
-		runPromises.push(
-			getLevelRuns(level.apiId)
-				.then((body) => {
-					let runs = body.data;
+	// for (level of levels){
+	// 	runPromises.push(
+	// 		getLevelRuns(level.apiId)
+	// 			.then((body) => {
+	// 				let runs = body.data;
 
-					for (run of runs){
+	// 				for (run of runs){
+	// 					db.prepare(
+	// 						`INSERT OR REPLACE INTO runs (
+	// 							apiId,
+	// 							levelId,
+	// 							userId,
+	// 							lagAbuse,
+	// 							time,
+	// 							date
+	// 							) VALUES(?,?,?,?,?,?)`,
+	// 					).run([
+	// 						run.id,
+	// 						run.level,
+	// 						run.players[0].id,
+	// 						(run.values["r8rg5zrn"] === "5q8ze9gq" ? 0 : 1), // lag abuse, "5q8ze9gq" is NO lag abuse used.
+	// 						parseFloat(run.times.primary_t),
+	// 						run.date || run.submitted.substr(0, run.submitted.indexOf("T"))
+	// 					]);
+	// 				}
 
-						db.prepare(
-							`INSERT OR REPLACE INTO runs (
-								apiId,
-								levelId,
-								userId,
-								lagAbuse,
-								time,
-								date
-								) VALUES(?,?,?,?,?,?)`,
-						).run([
-							run.id,
-							run.level,
-							run.players[0].id,
-							(run.values["r8rg5zrn"] === "5q8ze9gq" ? 0 : 1), // lag abuse, "5q8ze9gq" is NO lag abuse used.
-							run.times.primary_t,
-							run.date || run.submitted.substr(0, run.submitted.indexOf("T"))
-						]);
+	// 				return true;
+	// 			},
+	// 			(error) => {
+	// 				return error;
+	// 			})
+	// 			.catch((error)=>{
+	// 				console.log(error);
+	// 			})
+	// 	);
+	// }
 
-					}
-
-					return true;
-				},
-				(error) => {
-					return error;
-				})
-				.catch((error)=>{
-					console.log(error);
-				})
-		);
-	}
-
-	return Promise.all(runPromises);
-
+	// return Promise.all(runPromises);
 	return true;
 }).then(() => {
 	db.prepare("COMMIT TRANSACTION").run();
-})
+
+	// Add users
+	console.log(currentHourString() + ' Adding users...'.yellow);
+
+	db.prepare(`
+		CREATE TABLE IF NOT EXISTS users (
+			userId TEXT UNIQUE,
+			userName TEXT,
+			webLink TEXT,
+			PRIMARY KEY("userId")
+		)
+		`).run();
+
+	db.prepare("BEGIN TRANSACTION").run();
+
+	// Get all unique users with a run
+	let userPromises = [];
+	let users = db.prepare(`SELECT DISTINCT userId FROM runs`).all();
+	for (user of users) {
+		userPromises.push(
+			srcApiRequest(`users/${user.userId}`)
+				.then((response) => {
+					response = response.data;
+					db.prepare(
+						`INSERT OR REPLACE INTO users (
+							userId,
+							userName,
+							webLink
+						) VALUES(?,?,?)`,
+					).run([
+						response.id,
+						response.names.international,
+						response.weblink
+					]);
+				})
+		);
+	}
+}).then(() => {
+	db.prepare("COMMIT TRANSACTION").run();
+});
 
 /* Express connections */
 let mustacheExpress = require("mustache-express");
@@ -253,25 +293,34 @@ app.get("/chambers", function (req, res) {
 });
 
 app.get("/individual-levels", function (req, res) {
+	// get runs
 	let runs = db.prepare(`
-		SELECT levelId, userId, time
+		SELECT levelId, userId, min(time)
 		FROM runs r
 		WHERE r.apiId IN (
 			SELECT apiId
 			FROM runs
 			WHERE levelId = r.levelId AND lagAbuse = 0
-			ORDER BY time
-			LIMIT 3
-		);
+		)
+		GROUP BY levelId, userId
+		ORDER BY time
 	`).all();
 
 	let runDictionary = {};
-	for (run of runs){
+	for (run of runs) {
 		if (!runDictionary[run.levelId]) runDictionary[run.levelId] = [];
 		runDictionary[run.levelId].push(run);
 	}
 
-	for (wing of wings){
+	// get users
+	let users = db.prepare(`SELECT * FROM users`).all();
+	let userDictionary = {};
+	for (user of users) {
+		userDictionary[user.userId] = user;
+	}
+
+	// fill wings with above data
+	for (wing of wings) {
 		for (level of wing.levels) {
 			level.records = {
 				time: []
@@ -281,9 +330,9 @@ app.get("/individual-levels", function (req, res) {
 				for (records of runDictionary[level.apiId]){
 					level.records.time.push(
 						{
-							time: records.time.toFixed(2),
+							time: records["min(time)"].toFixed(2),
 							user: {
-								name: records.userId
+								name: records.userId ? userDictionary[records.userId].userName : "NULL"
 							}
 						}
 					);
