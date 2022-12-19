@@ -1,0 +1,36 @@
+[
+  {
+    "title": "BLUE WING",
+    "id": "blue",
+    "theme": {
+      "accentColor": "#3e88b3",
+      "accentColorDark": "#24333c",
+      "textColor": "#eeeeee"
+    }
+  },
+  {
+    "title": "YELLOW WING",
+    "id": "yellow",
+    "theme": {
+      "accentColor": "#e0d131",
+      "accentColorDark": "#5e5e36",
+      "textColor": "#222222"
+    }
+  },
+  {
+    "title": "RED WING",
+    "id": "red"
+  },
+  {
+    "title": "UBER IDS",
+    "id": "uberids"
+  },
+  {
+    "title": "THE DESMOND DEBACLE",
+    "id": "desmonddebacle"
+  },
+  {
+    "title": "IKE-ARAMBA!",
+    "id": "ikearamba"
+  }
+]

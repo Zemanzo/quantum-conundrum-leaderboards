@@ -1,0 +1,632 @@
+[
+  {
+    "id": 0,
+    "apiId": "xd05jj9q",
+    "wing": "blue",
+    "wingId": "WingA15",
+    "title": "Hall of Wonders",
+    "speedruncomLink": "https://www.speedrun.com/qc/Hall_of_Wonders",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72729",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72730"
+  },
+  {
+    "id": 1,
+    "apiId": "rw6606w7",
+    "wing": "blue",
+    "wingId": "WingA01",
+    "title": "A Shift in Perspective",
+    "speedruncomLink": "https://www.speedrun.com/qc/A_Shift_in_Perspective",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72550",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72551"
+  },
+  {
+    "id": 2,
+    "apiId": "n93jprd0",
+    "wing": "blue",
+    "wingId": "WingA10",
+    "title": "Huckin' Stuff",
+    "speedruncomLink": "https://www.speedrun.com/qc/Huckin_Stuff",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72719",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72720"
+  },
+  {
+    "id": 3,
+    "apiId": "z98k019l",
+    "wing": "blue",
+    "wingId": "WingA03",
+    "title": "Air Raising Scheme",
+    "speedruncomLink": "https://www.speedrun.com/qc/Air_Raising_Scheme",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72705",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72706"
+  },
+  {
+    "id": 4,
+    "apiId": "rdn1v69m",
+    "wing": "blue",
+    "wingId": "WingA11",
+    "title": "A Fluffy Journey of Discovery",
+    "speedruncomLink": "https://www.speedrun.com/qc/A_Fluffy_Journey_of_Discovery",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72721",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72722"
+  },
+  {
+    "id": 5,
+    "apiId": "ldyzv7w3",
+    "wing": "blue",
+    "wingId": "WingA12",
+    "title": "Kaladiophobia",
+    "speedruncomLink": "https://www.speedrun.com/qc/Kaladiophobia",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72723",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72724"
+  },
+  {
+    "id": 6,
+    "apiId": "n93jj2d0",
+    "wing": "blue",
+    "wingId": "WingA02",
+    "title": "A Weighted Decision",
+    "speedruncomLink": "https://www.speedrun.com/qc/A_Weighted_Decision",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72703",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72704"
+  },
+  {
+    "id": 7,
+    "apiId": "z98kkr9l",
+    "wing": "blue",
+    "wingId": "WingA04",
+    "title": "Stairway to Fluffy",
+    "speedruncomLink": "https://www.speedrun.com/qc/Stairway_to_Fluffy",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72707",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72708"
+  },
+  {
+    "id": 8,
+    "apiId": "rdn1159m",
+    "wing": "blue",
+    "wingId": "WingA05",
+    "title": "Needle in a Haystack",
+    "speedruncomLink": "https://www.speedrun.com/qc/Needle_in_a_Haystack",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72709",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72710"
+  },
+  {
+    "id": 9,
+    "apiId": "ldyzzpw3",
+    "wing": "blue",
+    "wingId": "WingA06",
+    "title": "Is this the Real Life, is it Just Fan-tasy?",
+    "speedruncomLink": "https://www.speedrun.com/qc/Is_this_the_Real_Life_is_it_Just_Fan-tasy",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72711",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72712"
+  },
+  {
+    "id": 10,
+    "apiId": "gdr33edz",
+    "wing": "blue",
+    "wingId": "WingA07",
+    "title": "Springing to New Heights",
+    "speedruncomLink": "https://www.speedrun.com/qc/Springing_to_New_Heights",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72713",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72714"
+  },
+  {
+    "id": 11,
+    "apiId": "nwljjo9v",
+    "wing": "blue",
+    "wingId": "WingA08",
+    "title": "Mind the Gap",
+    "speedruncomLink": "https://www.speedrun.com/qc/Mind_the_Gap",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72715",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72716"
+  },
+  {
+    "id": 12,
+    "apiId": "yweeelwl",
+    "wing": "blue",
+    "wingId": "WingA09",
+    "title": "Around the World",
+    "speedruncomLink": "https://www.speedrun.com/qc/Around_the_World",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72717",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72718"
+  },
+  {
+    "id": 13,
+    "apiId": "69zggxw1",
+    "wing": "blue",
+    "wingId": "WingA13",
+    "title": "A Minor In-Conveyance",
+    "speedruncomLink": "https://www.speedrun.com/qc/A_Minor_In-Conveyance",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72725",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72726"
+  },
+  {
+    "id": 14,
+    "apiId": "r9gggj92",
+    "wing": "blue",
+    "wingId": "WingA14",
+    "title": "End of the Beginning",
+    "speedruncomLink": "https://www.speedrun.com/qc/End_of_the_Beginning",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72727",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72728"
+  },
+  {
+    "id": 15,
+    "apiId": "49511mwp",
+    "wing": "yellow",
+    "wingId": "WingB01",
+    "title": "Our Safes will Blot out the Sun",
+    "speedruncomLink": "https://www.speedrun.com/qc/Our_Safes_will_Blot_out_the_Sun",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72731",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72732"
+  },
+  {
+    "id": 16,
+    "apiId": "rdqkkodx",
+    "wing": "yellow",
+    "wingId": "WingB02",
+    "title": "Ticket to Ride",
+    "speedruncomLink": "https://www.speedrun.com/qc/Ticket_to_Ride",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72733",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72734"
+  },
+  {
+    "id": 17,
+    "apiId": "5d7mmqdy",
+    "wing": "yellow",
+    "wingId": "WingB03",
+    "title": "Do the Robot",
+    "speedruncomLink": "https://www.speedrun.com/qc/Do_the_Robot",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72735",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72736"
+  },
+  {
+    "id": 18,
+    "apiId": "kwjqq09g",
+    "wing": "yellow",
+    "wingId": "WingB04",
+    "title": "Hang Time",
+    "speedruncomLink": "https://www.speedrun.com/qc/Hang_Time",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72737",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72738"
+  },
+  {
+    "id": 19,
+    "apiId": "owoppj96",
+    "wing": "yellow",
+    "wingId": "WingB05",
+    "title": "It's Slow Throwing from here on Out",
+    "speedruncomLink": "https://www.speedrun.com/qc/Its_Slow_Throwing_from_here_on_Out",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72739",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72740"
+  },
+  {
+    "id": 20,
+    "apiId": "gdrzvk9z",
+    "wing": "yellow",
+    "wingId": "WingB06",
+    "title": "Cat's in the Cradle",
+    "speedruncomLink": "https://www.speedrun.com/qc/Cats_in_the_Cradle",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72741",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72742"
+  },
+  {
+    "id": 21,
+    "apiId": "nwl8vgdv",
+    "wing": "yellow",
+    "wingId": "WingB07",
+    "title": "Is it Safe to Ride?",
+    "speedruncomLink": "https://www.speedrun.com/qc/Is_it_Safe_to_Ride",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72743",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72744"
+  },
+  {
+    "id": 22,
+    "apiId": "yweo749l",
+    "wing": "yellow",
+    "wingId": "WingB08",
+    "title": "Time Weighs Heavy upon us All",
+    "speedruncomLink": "https://www.speedrun.com/qc/Time_Weighs_Heavy_upon_us_All",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72746",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72747"
+  },
+  {
+    "id": 23,
+    "apiId": "xd1qqzwo",
+    "wing": "yellow",
+    "wingId": "WingB09",
+    "title": "The Odds are Stacked Against You",
+    "speedruncomLink": "https://www.speedrun.com/qc/The_Odds_are_Stacked_Against_You",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72748",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72749"
+  },
+  {
+    "id": 24,
+    "apiId": "ewp66ydn",
+    "wing": "yellow",
+    "wingId": "WingB10",
+    "title": "Robot Block Party",
+    "speedruncomLink": "https://www.speedrun.com/qc/Robot_Block_Party",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72750",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72751"
+  },
+  {
+    "id": 25,
+    "apiId": "y9moozw5",
+    "wing": "yellow",
+    "wingId": "WingB11",
+    "title": "A Boost of Confidence",
+    "speedruncomLink": "https://www.speedrun.com/qc/A_Boost_of_Confidence",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72752",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72753"
+  },
+  {
+    "id": 26,
+    "apiId": "5wk77vd4",
+    "wing": "yellow",
+    "wingId": "WingB12",
+    "title": "Manhattan Transfer",
+    "speedruncomLink": "https://www.speedrun.com/qc/Manhattan_Transfer",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72754",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72755"
+  },
+  {
+    "id": 27,
+    "apiId": "592777w6",
+    "wing": "yellow",
+    "wingId": "WingB13",
+    "title": "Catch and Release",
+    "speedruncomLink": "https://www.speedrun.com/qc/Catch_and_Release",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72756",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72757"
+  },
+  {
+    "id": 28,
+    "apiId": "29vrrqwv",
+    "wing": "yellow",
+    "wingId": "WingB14",
+    "title": "H-O-R-S-E",
+    "speedruncomLink": "https://www.speedrun.com/qc/H-O-R-S-E",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72758",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72759"
+  },
+  {
+    "id": 29,
+    "apiId": "xd4ooq9m",
+    "wing": "yellow",
+    "wingId": "WingB15",
+    "title": "What Goes Around...",
+    "speedruncomLink": "https://www.speedrun.com/qc/What_Goes_Around.",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72760",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72761"
+  },
+  {
+    "id": 30,
+    "apiId": "xd055m9q",
+    "wing": "yellow",
+    "wingId": "WingB16",
+    "title": "The Path to Higher Learning",
+    "speedruncomLink": "https://www.speedrun.com/qc/The_Path_to_Higher_Learning",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72762",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72763"
+  },
+  {
+    "id": 31,
+    "apiId": "rw666pw7",
+    "wing": "yellow",
+    "wingId": "WingB17",
+    "title": "Land of Misfit DOLLIs",
+    "speedruncomLink": "https://www.speedrun.com/qc/Land_of_Misfit_DOLLIs",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72764",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72765"
+  },
+  {
+    "id": 32,
+    "apiId": "z98kxr9l",
+    "wing": "red",
+    "wingId": "WingC01",
+    "title": "Reversal of Fortune",
+    "speedruncomLink": "https://www.speedrun.com/qc/Reversal_of_Fortune",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72766",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72767"
+  },
+  {
+    "id": 33,
+    "apiId": "rdn1y59m",
+    "wing": "red",
+    "wingId": "WingC02",
+    "title": "The Safe-est Way to Travel",
+    "speedruncomLink": "https://www.speedrun.com/qc/The_Safe-est_Way_to_Travel",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72768",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72769"
+  },
+  {
+    "id": 34,
+    "apiId": "ldyzopw3",
+    "wing": "red",
+    "wingId": "WingC03",
+    "title": "Lament of the Flightless Bird",
+    "speedruncomLink": "https://www.speedrun.com/qc/Lament_of_the_Flightless_Bird",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72770",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72771"
+  },
+  {
+    "id": 35,
+    "apiId": "gdr3zedz",
+    "wing": "red",
+    "wingId": "WingC04",
+    "title": "Going Up?",
+    "speedruncomLink": "https://www.speedrun.com/qc/Going_Up",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72772",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72773"
+  },
+  {
+    "id": 36,
+    "apiId": "nwlj8o9v",
+    "wing": "red",
+    "wingId": "WingC05",
+    "title": "The Greatest Puzzle in the World... Tribute",
+    "speedruncomLink": "https://www.speedrun.com/qc/The_Greatest_Puzzle_in_the_World._Tribute",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72774",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72775"
+  },
+  {
+    "id": 37,
+    "apiId": "yweeolwl",
+    "wing": "red",
+    "wingId": "WingC06",
+    "title": "A Course of Matter",
+    "speedruncomLink": "https://www.speedrun.com/qc/A_Course_of_Matter",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72776",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72777"
+  },
+  {
+    "id": 38,
+    "apiId": "69zg1xw1",
+    "wing": "red",
+    "wingId": "WingC08",
+    "title": "Not Your Typical Sushi Bar",
+    "speedruncomLink": "https://www.speedrun.com/qc/Not_Your_Typical_Sushi_Bar",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72780",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72781"
+  },
+  {
+    "id": 39,
+    "apiId": "r9ggpj92",
+    "wing": "red",
+    "wingId": "WingC07",
+    "title": "Through the Glass Flooring",
+    "speedruncomLink": "https://www.speedrun.com/qc/Through_the_Glass_Flooring",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72778",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72779"
+  },
+  {
+    "id": 40,
+    "apiId": "o9xej3wl",
+    "wing": "red",
+    "wingId": "WingC09",
+    "title": "Nothin' but Vat",
+    "speedruncomLink": "https://www.speedrun.com/qc/Nothin_but_Vat",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72782",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72783"
+  },
+  {
+    "id": 41,
+    "apiId": "4951emwp",
+    "wing": "red",
+    "wingId": "WingC10",
+    "title": "Whoever Belt it, Dealt it",
+    "speedruncomLink": "https://www.speedrun.com/qc/Whoever_Belt_it_Dealt_it",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72784",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72785"
+  },
+  {
+    "id": 42,
+    "apiId": "rdqkeodx",
+    "wing": "red",
+    "wingId": "WingC11",
+    "title": "Flipping Out",
+    "speedruncomLink": "https://www.speedrun.com/qc/Flipping_Out",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72786",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72787"
+  },
+  {
+    "id": 43,
+    "apiId": "5d7mgqdy",
+    "wing": "red",
+    "wingId": "WingC12",
+    "title": "Robot Transfer",
+    "speedruncomLink": "https://www.speedrun.com/qc/Robot_Transfer",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72788",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72789"
+  },
+  {
+    "id": 44,
+    "apiId": "kwjq209g",
+    "wing": "red",
+    "wingId": "WingC13",
+    "title": "I Saw the Sine",
+    "speedruncomLink": "https://www.speedrun.com/qc/I_Saw_the_Sine",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72790",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72791"
+  },
+  {
+    "id": 45,
+    "apiId": "owoprj96",
+    "wing": "red",
+    "wingId": "WingC14",
+    "title": "Couch Surfing",
+    "speedruncomLink": "https://www.speedrun.com/qc/Couch_Surfing",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72792",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72793"
+  },
+  {
+    "id": 46,
+    "apiId": "xd1qnzwo",
+    "wing": "red",
+    "wingId": "WingC15",
+    "title": "Choose Wisely",
+    "speedruncomLink": "https://www.speedrun.com/qc/Choose_Wisely",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72794",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72795"
+  },
+  {
+    "id": 47,
+    "apiId": "ewp6lydn",
+    "wing": "red",
+    "wingId": "WingC16",
+    "title": "Sine Language",
+    "speedruncomLink": "https://www.speedrun.com/qc/Sine_Language",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72796",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72797"
+  },
+  {
+    "id": 48,
+    "apiId": "y9monzw5",
+    "wing": "red",
+    "wingId": "WingC19",
+    "title": "Beginning of the End",
+    "speedruncomLink": "https://www.speedrun.com/qc/Beginning_of_the_End",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72798",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72799"
+  },
+  {
+    "id": 49,
+    "apiId": "5wk73vd4",
+    "wing": "uberids",
+    "wingId": "WingD01",
+    "title": "Only a Minor Setback Pt. I",
+    "speedruncomLink": "https://www.speedrun.com/qc/Only_a_Minor_Setback_Pt._I",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72800",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/72801"
+  },
+  {
+    "id": 50,
+    "apiId": "5927y7w6",
+    "wing": "uberids",
+    "wingId": "WingD02",
+    "title": "Only a Minor Setback Pt. II",
+    "speedruncomLink": "https://www.speedrun.com/qc/Only_a_Minor_Setback_Pt._II",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/84696",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/84697"
+  },
+  {
+    "id": 51,
+    "apiId": "xd4olq9m",
+    "wing": "desmonddebacle",
+    "wingId": "WingE01",
+    "title": "A Bird in the Hand",
+    "speedruncomLink": "https://www.speedrun.com/qc/A_Bird_in_the_Hand",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90172",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90173"
+  },
+  {
+    "id": 52,
+    "apiId": "xd058m9q",
+    "wing": "desmonddebacle",
+    "wingId": "WingE02",
+    "title": "The Mad Ladder",
+    "speedruncomLink": "https://www.speedrun.com/qc/The_Mad_Ladder",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90174",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90175"
+  },
+  {
+    "id": 53,
+    "apiId": "rw66zpw7",
+    "wing": "desmonddebacle",
+    "wingId": "WingE03",
+    "title": "Stamp of Approval",
+    "speedruncomLink": "https://www.speedrun.com/qc/Stamp_of_Approval",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90176",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90177"
+  },
+  {
+    "id": 54,
+    "apiId": "n93j62d0",
+    "wing": "desmonddebacle",
+    "wingId": "WingE10",
+    "title": "Domo Arigato",
+    "speedruncomLink": "https://www.speedrun.com/qc/Domo_Arigato",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90184",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90185"
+  },
+  {
+    "id": 55,
+    "apiId": "z98k1r9l",
+    "wing": "desmonddebacle",
+    "wingId": "WingE08",
+    "title": "Elevator Shafted",
+    "speedruncomLink": "https://www.speedrun.com/qc/Elevator_Shafted",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90180",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90181"
+  },
+  {
+    "id": 56,
+    "apiId": "rdn1e59m",
+    "wing": "desmonddebacle",
+    "wingId": "WingE04",
+    "title": "The Aviary Overlord",
+    "speedruncomLink": "https://www.speedrun.com/qc/The_Aviary_Overlord",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90178",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90179"
+  },
+  {
+    "id": 57,
+    "apiId": "gdr35edz",
+    "wing": "ikearamba",
+    "wingId": "WingF04",
+    "title": "All the King's Men",
+    "speedruncomLink": "https://www.speedrun.com/qc/All_the_Kings_Men",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90188",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90189"
+  },
+  {
+    "id": 58,
+    "apiId": "nwljro9v",
+    "wing": "ikearamba",
+    "wingId": "WingF05",
+    "title": "Thread the Needle",
+    "speedruncomLink": "https://www.speedrun.com/qc/Thread_the_Needle",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90192",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90193"
+  },
+  {
+    "id": 59,
+    "apiId": "ywee6lwl",
+    "wing": "ikearamba",
+    "wingId": "WingF06",
+    "title": "Get up with the Get down",
+    "speedruncomLink": "https://www.speedrun.com/qc/Get_up_with_the_Get_down",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90190",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90191"
+  },
+  {
+    "id": 60,
+    "apiId": "69zgkxw1",
+    "wing": "ikearamba",
+    "wingId": "WingF08",
+    "title": "Vat Chance",
+    "speedruncomLink": "https://www.speedrun.com/qc/Vat_Chance",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90196",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90197"
+  },
+  {
+    "id": 61,
+    "apiId": "r9ggvj92",
+    "wing": "ikearamba",
+    "wingId": "WingF09",
+    "title": "All We Need now are Sharks",
+    "speedruncomLink": "https://www.speedrun.com/qc/All_We_Need_now_are_Sharks",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90198",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90199"
+  },
+  {
+    "id": 62,
+    "apiId": "o9xep3wl",
+    "wing": "ikearamba",
+    "wingId": "WingF10",
+    "title": "Fire and Ike",
+    "speedruncomLink": "https://www.speedrun.com/qc/Fire_and_Ike",
+    "steamtimeLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90200",
+    "steamshiftLink": "http://steamcommunity.com/stats/Quantum%20Conundrum/leaderboards/90201"
+  }
+]

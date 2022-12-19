@@ -1,0 +1,57 @@
+:root {
+  --bluewing: #3e88b3;
+  --bluewing-dark: #24333c;
+  --yellowwing: rgb(224, 209, 49);
+  --yellowwing-dark: #5e5e36;
+  --redwing: #b33e3e;
+  --redwing-dark: #541818;
+  --desmonddebacle: #ff9235;
+  --desmonddebacle-dark: #813c01;
+  --ikearamba: #50bc50;
+  --ikearamba-dark: #1a391a;
+  --rainbow: repeating-linear-gradient(
+    90deg,
+    #b33e3e 0%,
+    #b33e3e 14.28571%,
+    #f79800 14.28571%,
+    #f79800 28.57142%,
+    #e0d131 28.57142%,
+    #e0d131 42.85714%,
+    #50bc50 42.85714%,
+    #50bc50 57.14285%,
+    #2ed1ce 57.14285%,
+    #2ed1ce 71.42857%,
+    #3e88b3 71.42857%,
+    #3e88b3 85.71428%,
+    #e45eff 85.71428%,
+    #e45eff 100%
+  );
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 14px;
+  background: #0c090c;
+  color: #eee;
+  min-width: 605px;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+}

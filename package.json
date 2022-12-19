@@ -1,22 +1,49 @@
 {
   "name": "quantum-conundrum-leaderboards",
-  "version": "0.0.1",
-  "description": "Formats data from speedrun.com in a nicer, better and more readable way.",
-  "main": "qcl.js",
-  "scripts": {
-    "start": "node qcl.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Merlijn van der Kamp",
-  "license": "ISC",
+  "version": "0.1.0",
+  "description": "Presents data from speedrun.com in a nicer, better and more readable way.",
+  "private": true,
   "dependencies": {
-    "better-sqlite3": "^5.0.1",
-    "body-parser": "^1.18.2",
-    "colors": "^1.2.1",
-    "compression": "^1.7.2",
-    "express": "^4.16.3",
-    "mustache-express": "^1.2.5",
-    "request": "^2.88.0"
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.26",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.5",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
+    "typescript": "^4.4.2",
+    "web-vitals": "^2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "repository": {
     "type": "git",
