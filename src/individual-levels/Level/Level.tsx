@@ -1,24 +1,46 @@
-import { LevelDetails } from "../../types";
+import { LevelDetails, LevelTimeRecord } from "../../types";
+import { useDataContext } from "../DataContext";
 import LevelImage from "./LevelImage";
 import LevelMeta from "./LevelMeta";
 import LevelShifts from "./LevelShifts";
 import LevelTimes from "./LevelTimes";
 import LevelTitle from "./LevelTitle";
+import LevelLoader from "./LevelLoader";
 
 type LevelProps = {
   levelDetails: LevelDetails;
 };
 
 export default function Level({ levelDetails }: LevelProps) {
-  const { number, levelId, webLink, title, records } = levelDetails;
+  const { number, levelId, apiId, webLink, title } = levelDetails;
+  const { isLoading, runs } = useDataContext();
+
+  const timeRecords =
+    (!isLoading &&
+      runs?.[apiId]?.map<LevelTimeRecord>((run) => ({
+        userId: run.userId,
+        time: run["min(time)"],
+        link: "https://",
+      }))) ||
+    [];
+
+  const shiftRecords = {
+    shifts: 0,
+  };
 
   return (
     <>
       <LevelImage levelId={levelId} />
       <LevelMeta number={number} levelId={levelId} />
-      <LevelTitle>{title}</LevelTitle>
-      <LevelTimes records={records.time} />
-      <LevelShifts record={records.shift} />
+      <LevelTitle webLink={webLink}>{title}</LevelTitle>
+      {isLoading ? (
+        <LevelLoader />
+      ) : (
+        <>
+          <LevelTimes records={timeRecords} />
+          <LevelShifts record={shiftRecords} />
+        </>
+      )}
       {/* <div class="image">
       <img src="http://qc.zemanzo.nl/265pThumbnails/{{wingId}}.jpg"/>
     </div>

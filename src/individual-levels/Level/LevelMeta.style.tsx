@@ -5,7 +5,7 @@ export const LevelNumber = styled.div``;
 export const LevelId = styled.div`
   visibility: hidden;
   height: 0px;
-  font-size: 0.35em;
+  font-size: 0.4em;
   opacity: 0.7;
   margin-top: 2px;
 `;

@@ -1,22 +1,16 @@
 import styled from "styled-components";
 
-export const StyledWrapper = styled.div`
+export const StyledLoader = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  color: ${(props) => props.theme.textColor}44;
   background-color: ${(props) => props.theme.accentColor};
-`;
-
-export const StyledTitle = styled.a`
-  color: ${(props) => props.theme.textColor};
   font-family: "Oswald", sans-serif;
   padding: 0px 8px;
   font-size: 1.6em;
   text-transform: uppercase;
   font-weight: 400;
   line-height: 1;
-  text-decoration: none;
-
-  :hover {
-    text-decoration: underline;
-  }
+  grid-column: span 2;
 `;

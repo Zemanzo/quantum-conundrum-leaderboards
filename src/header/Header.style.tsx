@@ -14,6 +14,8 @@ export const StyledHeader = styled.header`
   background: linear-gradient(to bottom, #110612 40%, #9430d122 100%);
   border-bottom: #23122f 2px solid;
   min-height: 54px;
+  box-shadow: #000000 0px 0px 15px 5px;
+  z-index: 10;
 `;
 
 export const StyledH1 = styled.h1`

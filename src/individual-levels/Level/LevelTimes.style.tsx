@@ -21,13 +21,25 @@ export const StyledEntry = styled.div`
   overflow: hidden;
   white-space: nowrap;
 
-  > div {
+  > a:first-child {
     font-size: 1.8em;
     font-weight: 100;
+    line-height: 1.3;
+    color: ${(props) => props.theme.textColor};
+    text-decoration: none;
+
+    :hover {
+      text-decoration: underline;
+    }
   }
 
-  > a {
+  > a:not(:first-child) {
+    font-size: 1.1em;
+    display: inline-block;
+    background-color: ${(props) => props.theme.textColor}22;
     color: ${(props) => props.theme.textColor};
+    padding: 0 4px;
+    border-radius: 4px;
     text-decoration: none;
 
     :hover {

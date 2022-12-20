@@ -1,8 +1,8 @@
-import { LevelDetails } from "../../types";
+import { LevelShiftDefault, LevelShiftRecord } from "../../types";
 import { StyledShifts, StyledEntry } from "./LevelShifts.style";
 
 type LevelShiftsProps = {
-  record: LevelDetails["records"]["shift"];
+  record: LevelShiftRecord | LevelShiftDefault;
 };
 
 export default function LevelShifts({ record }: LevelShiftsProps) {

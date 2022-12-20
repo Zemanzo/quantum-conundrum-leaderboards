@@ -3,42 +3,6 @@ import { LevelDetails, User } from "../types";
 import Level from "./Level/Level";
 import SectionHeader from "./SectionHeader";
 
-const userZemanzo: User = {
-  displayName: "Zemanzo",
-};
-const userFatal: User = {
-  displayName: "Fatal",
-};
-
-const testDetails: LevelDetails = {
-  number: 2,
-  levelId: "WingA01",
-  webLink: "https://",
-  title: "Kaladiophobia",
-  records: {
-    time: [
-      {
-        user: userFatal,
-        time: 11.01,
-        link: "https://",
-      },
-      {
-        user: userZemanzo,
-        time: 11.23,
-        link: "https://",
-      },
-    ],
-    // shift: {
-    //   user: userZemanzo,
-    //   shifts: 2,
-    //   link: "https://",
-    // },
-    shift: {
-      shifts: 2,
-    },
-  },
-};
-
 const fallBackTheme = {
   accentColor: "#eee",
   accentColorDark: "#444",
@@ -67,7 +31,7 @@ export default function Section({
       <ThemeProvider theme={theme}>
         <SectionHeader title={title} />
         {levels.map((levelDetails) => (
-          <Level levelDetails={levelDetails} />
+          <Level levelDetails={levelDetails} key={levelDetails.apiId} />
         ))}
       </ThemeProvider>
     </>

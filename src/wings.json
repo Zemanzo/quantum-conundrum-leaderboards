@@ -19,18 +19,38 @@
   },
   {
     "title": "RED WING",
-    "id": "red"
+    "id": "red",
+    "theme": {
+      "accentColor": "#b33e3e",
+      "accentColorDark": "#541818",
+      "textColor": "#eeeeee"
+    }
   },
   {
     "title": "UBER IDS",
-    "id": "uberids"
+    "id": "uberids",
+    "theme": {
+      "accentColor": "#555555",
+      "accentColorDark": "#161616",
+      "textColor": "#eeeeee"
+    }
   },
   {
     "title": "THE DESMOND DEBACLE",
-    "id": "desmonddebacle"
+    "id": "desmonddebacle",
+    "theme": {
+      "accentColor": "#ff9235",
+      "accentColorDark": "#813c01",
+      "textColor": "#222222"
+    }
   },
   {
     "title": "IKE-ARAMBA!",
-    "id": "ikearamba"
+    "id": "ikearamba",
+    "theme": {
+      "accentColor": "#50bc50",
+      "accentColorDark": "#1a391a",
+      "textColor": "#222222"
+    }
   }
 ]
