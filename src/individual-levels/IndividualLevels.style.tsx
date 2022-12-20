@@ -7,6 +7,6 @@ export const StyledLevels = styled.main`
   grid-auto-rows: minmax(60px, auto);
   grid-auto-flow: row;
   padding: 0 16px;
-  max-width: 1600px;
+  max-width: 1800px;
   margin: auto;
 `;

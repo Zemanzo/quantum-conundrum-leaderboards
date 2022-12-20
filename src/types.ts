@@ -40,6 +40,7 @@ export type ApiResponseRuns = Array<{
   levelId: string;
   userId: string;
   "min(time)": number;
+  videoLink: WebLink;
 }>;
 
 export type ApiResponseUsers = Array<{

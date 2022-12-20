@@ -20,7 +20,7 @@ export default function Level({ levelDetails }: LevelProps) {
       runs?.[apiId]?.map<LevelTimeRecord>((run) => ({
         userId: run.userId,
         time: run["min(time)"],
-        link: "https://",
+        link: run.videoLink,
       }))) ||
     [];
 
