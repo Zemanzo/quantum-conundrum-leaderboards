@@ -16,16 +16,19 @@ export const StyledEntry = styled.div`
   padding: 0 8px;
   box-sizing: border-box;
   font-family: "Oswald", sans-serif;
-  text-shadow: 0px 1px 1px #363636;
-  border-right: 2px solid #222;
+  text-shadow: #000 0px 1px 2px, #000 0px 1px 2px, #fff6 0px 0px 5px;
+  border-right: 2px solid ${(props) => props.theme.accentColor};
+  background: #111c;
   overflow: hidden;
   white-space: nowrap;
+  border-radius: 8px;
+  height: 56px;
 
   > a:first-child {
-    font-size: 1.8em;
+    font-size: 1.59em;
     font-weight: 100;
-    line-height: 1.3;
-    color: ${(props) => props.theme.textColor};
+    line-height: 1.2;
+    color: #eee;
     text-decoration: none;
 
     :hover {
@@ -34,10 +37,9 @@ export const StyledEntry = styled.div`
   }
 
   > a:not(:first-child) {
-    font-size: 1.1em;
+    font-size: 1.4em;
     display: inline-block;
-    background-color: ${(props) => props.theme.textColor}22;
-    color: ${(props) => props.theme.textColor};
+    color: ${(props) => props.theme.accentColor};
     padding: 0 4px;
     border-radius: 4px;
     text-decoration: none;
@@ -49,8 +51,22 @@ export const StyledEntry = styled.div`
     span {
       display: inline-block;
       padding-left: 6px;
-      color: ${(props) => props.theme.textColor}cc;
+      color: #eeeb;
       font-weight: 100;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    > a:first-child {
+      order: 1;
+    }
+
+    > a:not(:first-child) {
+      order: 0;
     }
   }
 `;
