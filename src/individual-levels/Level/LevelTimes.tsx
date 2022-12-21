@@ -20,7 +20,7 @@ export default function LevelTimes({ records }: LevelTimesProps) {
         };
 
         if (i > 0) {
-          timeDiff = `(+${(time - records[i - 1].time).toFixed(2)})`;
+          timeDiff = `(+${(time - records[0].time).toFixed(2)})`;
         }
         return (
           <StyledEntry key={userId}>

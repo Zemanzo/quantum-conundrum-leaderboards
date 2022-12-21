@@ -1,3 +1,4 @@
+import { useReducer } from "react";
 import useFetch from "react-fetch-hook";
 import { StyledLevels } from "./IndividualLevels.style";
 import LEVELS from "../levels.json";
@@ -33,7 +34,28 @@ const sections = Object.entries(groupedLevels).map(([sectionId, levels]) => {
   ) : null;
 });
 
+type RunsReducerState = {
+  [key: string]: ApiResponseRuns;
+};
+
+type RunsReducerAction = {
+  level: string;
+  runs: ApiResponseRuns;
+};
+
+function updatedRunsReducer(
+  state: RunsReducerState,
+  action: RunsReducerAction
+) {
+  return { ...state, [action.level]: action.runs };
+}
+
 export default function IndividualLevels() {
+  const [updatedRunsState, updateLevelRuns] = useReducer(
+    updatedRunsReducer,
+    {}
+  );
+
   const { isLoading: isLoadingRuns, data: runs } = useFetch<ApiResponseRuns>(
     "http://localhost:3005/api/runs"
   );
@@ -46,7 +68,11 @@ export default function IndividualLevels() {
       if (!sorted[run.levelId]) {
         sorted[run.levelId] = [];
       }
-      sorted[run.levelId].push(run);
+      if (updatedRunsState[run.levelId]) {
+        sorted[run.levelId] = updatedRunsState[run.levelId];
+      } else {
+        sorted[run.levelId].push(run);
+      }
       return sorted;
     },
     {}
@@ -64,6 +90,7 @@ export default function IndividualLevels() {
     isLoading: isLoadingRuns && isLoadingUsers,
     runs: sortedRuns,
     users: usersLookup,
+    updateLevelRuns,
   };
 
   return (

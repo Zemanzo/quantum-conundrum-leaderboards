@@ -5,6 +5,7 @@ export interface PageContextType {
   isLoading: boolean;
   runs?: Record<string, ApiResponseRuns>;
   users?: Record<string, ApiResponseUsers[number]>;
+  updateLevelRuns: (action: { level: string; runs: ApiResponseRuns }) => void;
 }
 
 export const DataContext = createContext<PageContextType>(

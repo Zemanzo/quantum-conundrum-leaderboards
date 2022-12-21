@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { LevelDetails, LevelTimeRecord } from "../../types";
 import { useDataContext } from "../DataContext";
 import LevelImage from "./LevelImage";
@@ -13,7 +14,8 @@ type LevelProps = {
 
 export default function Level({ levelDetails }: LevelProps) {
   const { number, levelId, apiId, webLink, title } = levelDetails;
-  const { isLoading, runs } = useDataContext();
+  const { isLoading, runs, updateLevelRuns } = useDataContext();
+  const [isLoadingLevel, setIsLoadingLevel] = useState(false);
 
   const timeRecords =
     (!isLoading &&
@@ -30,10 +32,15 @@ export default function Level({ levelDetails }: LevelProps) {
 
   return (
     <>
-      <LevelImage levelId={levelId} />
-      <LevelMeta number={number} levelId={levelId} />
+      <LevelImage
+        levelId={levelId}
+        apiId={apiId}
+        updateLevelRuns={updateLevelRuns}
+        setIsLoadingLevel={setIsLoadingLevel}
+      />
+      <LevelMeta number={number} levelId={apiId} />
       <LevelTitle webLink={webLink}>{title}</LevelTitle>
-      {isLoading ? (
+      {isLoading || isLoadingLevel ? (
         <LevelLoader />
       ) : (
         <>
@@ -41,28 +48,6 @@ export default function Level({ levelDetails }: LevelProps) {
           <LevelShifts record={shiftRecords} />
         </>
       )}
-      {/* <div class="image">
-      <img src="http://qc.zemanzo.nl/265pThumbnails/{{wingId}}.jpg"/>
-    </div>
-    <div class="title">
-      {{#weblink}}<a href="{{weblink}}">{{/weblink}}{{title}}{{#weblink}}</a>{{/weblink}}
-    </div>
-    <div class="time">
-      {{#records.time}}
-        <div class="entry">
-          <div>{{user.name}}</div>
-          <div>{{time}}</div>
-        </div>
-      {{/records.time}}
-    </div>
-    <div class="shift">
-      <div class="entry{{#records.shift.unset}} unset{{/records.shift.unset}}">
-        <div>{{records.shift.amount}}</div>
-        {{^records.shift.unset}}
-          <div>{{records.shift.user.name}}</div>
-        {{/records.shift.unset}}
-      </div>
-    </div> */}
     </>
   );
 }
