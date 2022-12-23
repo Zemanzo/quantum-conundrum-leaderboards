@@ -19,4 +19,9 @@ export const StyledTitle = styled.a`
   :hover {
     text-decoration: underline;
   }
+
+  @media (max-width: 1000px) {
+    padding: 0 2px;
+    font-size: 1.2em;
+  }
 `;

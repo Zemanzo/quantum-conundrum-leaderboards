@@ -10,6 +10,12 @@ export const SectionTitle = styled.h2`
   align-self: end;
   padding-top: 0.5em;
   color: ${(props) => props.theme.accentColor};
+
+  @media (max-width: 1000px) {
+    font-size: 1.8em;
+    font-weight: 500;
+    padding-left: 4px;
+  }
 `;
 
 export const StyledHeader = styled.div`
@@ -27,6 +33,10 @@ export const StyledHeader = styled.div`
     padding: 0 8px;
     width: 33.3%;
     text-align: right;
+  }
+
+  @media (max-width: 1000px) {
+    font-size: 1em;
   }
 `;
 

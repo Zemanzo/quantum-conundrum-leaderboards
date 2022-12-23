@@ -14,18 +14,21 @@ export type LevelTimeRecord = {
   link: WebLink;
 };
 
-export type LevelShiftRecord = {
-  user: User;
-  shifts: number;
-  link: WebLink;
-};
-export type LevelShiftDefault = {
-  shifts: number;
-};
+export type LevelShiftRecord =
+  | {
+      userId: string;
+      shifts: number;
+      link: WebLink;
+    }
+  | {
+      userId: null;
+      shifts: number;
+      link: null;
+    };
 
 export type LevelRecords = {
   time: LevelTimeRecord[];
-  shift: LevelShiftRecord | LevelShiftDefault;
+  shift: LevelShiftRecord;
 };
 
 export type LevelDetails = {
@@ -36,12 +39,20 @@ export type LevelDetails = {
   title: string;
 };
 
-export type ApiResponseRuns = Array<{
-  levelId: string;
-  userId: string;
-  "min(time)": number;
-  videoLink: WebLink;
-}>;
+export type ApiResponseRuns = {
+  runs: Array<{
+    levelId: string;
+    userId: string;
+    "min(time)": number;
+    videoLink: WebLink;
+  }>;
+  shifts: Array<{
+    levelId: string;
+    userId: string;
+    "min(shifts)": number;
+    videoLink: WebLink;
+  }>;
+};
 
 export type ApiResponseUsers = Array<{
   userId: string;

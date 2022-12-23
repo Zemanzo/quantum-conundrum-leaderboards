@@ -27,6 +27,10 @@ export const StyledH1 = styled.h1`
   font-family: "Yanone Kaffeesatz", sans-serif;
   margin-right: 2em;
 
+  @media (max-width: 1100px) {
+    font-size: 1.4em;
+  }
+
   > span {
     margin-bottom: -6px;
   }

@@ -14,7 +14,8 @@ type LevelProps = {
 
 export default function Level({ levelDetails }: LevelProps) {
   const { number, levelId, apiId, webLink, title } = levelDetails;
-  const { isLoading, runs, updateLevelRuns } = useDataContext();
+  const { isLoading, runs, shifts, updateLevelRuns, updateShiftsRuns } =
+    useDataContext();
   const [isLoadingLevel, setIsLoadingLevel] = useState(false);
 
   const timeRecords =
@@ -26,9 +27,17 @@ export default function Level({ levelDetails }: LevelProps) {
       }))) ||
     [];
 
-  const shiftRecords = {
-    shifts: 0,
-  };
+  const shiftRecords = shifts?.[apiId]
+    ? {
+        shifts: shifts[apiId][0]["min(shifts)"],
+        userId: shifts[apiId][0].userId,
+        link: shifts[apiId][0].videoLink,
+      }
+    : {
+        shifts: 0,
+        userId: null,
+        link: null,
+      };
 
   return (
     <>
@@ -36,9 +45,10 @@ export default function Level({ levelDetails }: LevelProps) {
         levelId={levelId}
         apiId={apiId}
         updateLevelRuns={updateLevelRuns}
+        updateLevelShifts={updateShiftsRuns}
         setIsLoadingLevel={setIsLoadingLevel}
       />
-      <LevelMeta number={number} levelId={apiId} />
+      <LevelMeta number={number} levelId={levelId} apiId={apiId} />
       <LevelTitle webLink={webLink}>{title}</LevelTitle>
       {isLoading || isLoadingLevel ? (
         <LevelLoader />

@@ -30,4 +30,13 @@ export const StyledImage = styled.div`
     cursor: pointer;
     user-select: none;
   }
+
+  @media (max-width: 1000px) {
+    > picture,
+    img {
+      max-width: 56px;
+      height: 56px;
+      object-fit: cover;
+    }
+  }
 `;

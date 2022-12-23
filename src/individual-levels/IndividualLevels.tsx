@@ -11,6 +11,8 @@ import {
   WebLink,
 } from "../types";
 import { DataContext } from "./DataContext";
+import { updatedShiftsReducer } from "./shiftsReducer";
+import { updatedRunsReducer } from "./runsReducer";
 
 const groupedLevels = groupArrayByProperty(LEVELS, "wing");
 
@@ -34,49 +36,29 @@ const sections = Object.entries(groupedLevels).map(([sectionId, levels]) => {
   ) : null;
 });
 
-type RunsReducerState = {
-  [key: string]: ApiResponseRuns;
-};
-
-type RunsReducerAction = {
-  level: string;
-  runs: ApiResponseRuns;
-};
-
-function updatedRunsReducer(
-  state: RunsReducerState,
-  action: RunsReducerAction
-) {
-  return { ...state, [action.level]: action.runs };
-}
-
 export default function IndividualLevels() {
   const [updatedRunsState, updateLevelRuns] = useReducer(
     updatedRunsReducer,
     {}
   );
-
-  const { isLoading: isLoadingRuns, data: runs } = useFetch<ApiResponseRuns>(
-    "http://localhost:3005/api/runs"
+  const [updatedShiftsState, updateShiftsRuns] = useReducer(
+    updatedShiftsReducer,
+    {}
   );
+
+  const { isLoading: isLoadingRuns, data: runsResponse } =
+    useFetch<ApiResponseRuns>("http://localhost:3005/api/runs");
   const { isLoading: isLoadingUsers, data: users } = useFetch<ApiResponseUsers>(
     "http://localhost:3005/api/users"
   );
 
-  const sortedRuns = runs?.reduce<Record<string, ApiResponseRuns>>(
-    (sorted, run) => {
-      if (!sorted[run.levelId]) {
-        sorted[run.levelId] = [];
-      }
-      if (updatedRunsState[run.levelId]) {
-        sorted[run.levelId] = updatedRunsState[run.levelId];
-      } else {
-        sorted[run.levelId].push(run);
-      }
-      return sorted;
-    },
-    {}
-  );
+  const sortedRuns = runsResponse?.runs?.reduce<
+    Record<string, ApiResponseRuns["runs"]>
+  >(getRunSortReducer<"runs">(updatedRunsState), {});
+
+  const sortedShifts = runsResponse?.shifts?.reduce<
+    Record<string, ApiResponseRuns["shifts"]>
+  >(getRunSortReducer<"shifts">(updatedShiftsState), {});
 
   const usersLookup = users?.reduce<Record<string, ApiResponseUsers[number]>>(
     (lookup, user) => {
@@ -89,8 +71,10 @@ export default function IndividualLevels() {
   const dataContext = {
     isLoading: isLoadingRuns && isLoadingUsers,
     runs: sortedRuns,
+    shifts: sortedShifts,
     users: usersLookup,
     updateLevelRuns,
+    updateShiftsRuns,
   };
 
   return (
@@ -113,4 +97,24 @@ function groupArrayByProperty<T extends any[], P extends keyof T[number]>(
     ];
     return accumulator;
   }, {});
+}
+
+function getRunSortReducer<T extends keyof ApiResponseRuns>(updatedState: {
+  [key: string]: ApiResponseRuns[T];
+}) {
+  return function (
+    sorted: Record<string, ApiResponseRuns[T]>,
+    run: ApiResponseRuns[T][number]
+  ) {
+    if (!sorted[run.levelId]) {
+      sorted[run.levelId] = [];
+    }
+    if (updatedState[run.levelId]) {
+      sorted[run.levelId] = updatedState[run.levelId];
+    } else {
+      //@ts-expect-error run is always correct type.
+      sorted[run.levelId].push(run);
+    }
+    return sorted;
+  };
 }

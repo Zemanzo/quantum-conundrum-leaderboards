@@ -12,6 +12,7 @@ export const StyledEntry = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: center;
   width: 33.3%;
   padding: 0 8px;
   box-sizing: border-box;
@@ -23,6 +24,10 @@ export const StyledEntry = styled.div`
   white-space: nowrap;
   border-radius: 8px;
   height: 56px;
+
+  @media (max-width: 1000px) {
+    font-size: 0.9em;
+  }
 
   > a:first-child {
     font-size: 1.59em;

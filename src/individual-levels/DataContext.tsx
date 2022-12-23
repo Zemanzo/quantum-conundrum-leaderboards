@@ -1,11 +1,15 @@
 import { createContext, useContext } from "react";
 import { ApiResponseRuns, ApiResponseUsers } from "../types";
+import { RunsReducerAction } from "./runsReducer";
+import { ShiftsReducerAction } from "./shiftsReducer";
 
 export interface PageContextType {
   isLoading: boolean;
-  runs?: Record<string, ApiResponseRuns>;
+  runs?: Record<string, ApiResponseRuns["runs"]>;
+  shifts?: Record<string, ApiResponseRuns["shifts"]>;
   users?: Record<string, ApiResponseUsers[number]>;
-  updateLevelRuns: (action: { level: string; runs: ApiResponseRuns }) => void;
+  updateLevelRuns: (action: RunsReducerAction) => void;
+  updateShiftsRuns: (action: ShiftsReducerAction) => void;
 }
 
 export const DataContext = createContext<PageContextType>(

@@ -9,4 +9,9 @@ export const StyledLevels = styled.main`
   padding: 0 16px;
   max-width: 1800px;
   margin: auto;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: min-content min-content minmax(150px, max-content) 3fr 1fr;
+    padding: 0;
+  }
 `;

@@ -25,6 +25,19 @@ export const StyledMeta = styled.div`
 
   :hover ${LevelId} {
     height: auto;
+    width: auto;
     visibility: visible;
+    display: block;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 0 2px;
+    font-size: 1.2em;
+
+    ${LevelId} {
+      display: none;
+      width: 0px;
+      font-size: 0.8em;
+    }
   }
 `;
