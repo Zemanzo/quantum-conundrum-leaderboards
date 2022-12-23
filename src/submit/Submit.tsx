@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { StyledSubmit, SubmitTitle } from "./Submit.style";
 import levels from "../levels.json";
+import { API_ROOT_URL } from "../constants";
 
 const wingLabelLookup: Record<string, string> = {
   blue: "Blue wing",
@@ -41,7 +42,7 @@ export default function Submit() {
 
     if (selectedLevel && selectedUser && password && !isNaN(shifts)) {
       setSubmitRequestState("⏳");
-      fetch(`http://localhost:3005/api/submit`, {
+      fetch(`${API_ROOT_URL}/api/submit`, {
         method: "POST",
         body: JSON.stringify({
           levelId: selectedLevel,

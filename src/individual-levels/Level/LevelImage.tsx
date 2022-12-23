@@ -1,3 +1,4 @@
+import { API_ROOT_URL } from "../../constants";
 import { ApiResponseRuns, LevelDetails } from "../../types";
 import { RunsReducerAction } from "../runsReducer";
 import { ShiftsReducerAction } from "../shiftsReducer";
@@ -19,9 +20,7 @@ export default function LevelImage({
   const fetchNewRuns = async () => {
     setIsLoadingLevel(true);
     try {
-      const response = await fetch(
-        `http://localhost:3005/api/updateLevel/${apiId}`
-      );
+      const response = await fetch(`${API_ROOT_URL}/api/updateLevel/${apiId}`);
       if (response.ok) {
         const updatedResponse: ApiResponseRuns = await response.json();
         updateLevelRuns({ level: apiId, runs: updatedResponse.runs });

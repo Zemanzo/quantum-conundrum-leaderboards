@@ -14,6 +14,7 @@ import { DataContext } from "./DataContext";
 import { updatedShiftsReducer } from "./shiftsReducer";
 import { updatedRunsReducer } from "./runsReducer";
 import ErrorBanner from "./ErrorBanner";
+import { API_ROOT_URL } from "../constants";
 
 const groupedLevels = groupArrayByProperty(LEVELS, "wing");
 
@@ -51,9 +52,9 @@ export default function IndividualLevels() {
     isLoading: isLoadingRuns,
     data: runsResponse,
     error,
-  } = useFetch<ApiResponseRuns>("http://localhost:3005/api/runs");
+  } = useFetch<ApiResponseRuns>(`${API_ROOT_URL}/api/runs`);
   const { isLoading: isLoadingUsers, data: users } = useFetch<ApiResponseUsers>(
-    "http://localhost:3005/api/users"
+    `${API_ROOT_URL}/api/users`
   );
 
   const sortedRuns = runsResponse?.runs?.reduce<
