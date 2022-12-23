@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Navigate, RouteObject, RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
+import About from "./about/About";
 import FullGame from "./full-game/FullGame";
 import "./index.css";
 import IndividualLevels from "./individual-levels/IndividualLevels";
@@ -21,6 +22,10 @@ const routes = [
   {
     path: "/individual-levels",
     element: <IndividualLevels />,
+  },
+  {
+    path: "/about",
+    element: <About />,
   },
   {
     path: "/submit",

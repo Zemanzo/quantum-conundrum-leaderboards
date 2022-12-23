@@ -13,6 +13,7 @@ import {
 import { DataContext } from "./DataContext";
 import { updatedShiftsReducer } from "./shiftsReducer";
 import { updatedRunsReducer } from "./runsReducer";
+import ErrorBanner from "./ErrorBanner";
 
 const groupedLevels = groupArrayByProperty(LEVELS, "wing");
 
@@ -46,8 +47,11 @@ export default function IndividualLevels() {
     {}
   );
 
-  const { isLoading: isLoadingRuns, data: runsResponse } =
-    useFetch<ApiResponseRuns>("http://localhost:3005/api/runs");
+  const {
+    isLoading: isLoadingRuns,
+    data: runsResponse,
+    error,
+  } = useFetch<ApiResponseRuns>("http://localhost:3005/api/runs");
   const { isLoading: isLoadingUsers, data: users } = useFetch<ApiResponseUsers>(
     "http://localhost:3005/api/users"
   );
@@ -79,6 +83,15 @@ export default function IndividualLevels() {
 
   return (
     <StyledLevels>
+      {error && (
+        <ErrorBanner>
+          <h2>⚠️ Could not fetch data...</h2>
+          <div>
+            The backend is probably down, go send angry messages at Zemanzo
+            until it is fixed.
+          </div>
+        </ErrorBanner>
+      )}
       <DataContext.Provider value={dataContext}>
         {sections}
       </DataContext.Provider>
