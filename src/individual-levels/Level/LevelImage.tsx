@@ -36,9 +36,11 @@ export default function LevelImage({
   return (
     <StyledImage>
       <picture>
-        <source srcSet={`http://qc.zemanzo.nl/265pThumbnails/${levelId}.jpg`} />
+        <source
+          srcSet={`https://qc.zemanzo.nl/265pThumbnails/${levelId}.jpg`}
+        />
         <img
-          src={`http://qc.zemanzo.nl/265pThumbnails/${levelId}.jpg`}
+          src={`https://qc.zemanzo.nl/265pThumbnails/${levelId}.jpg`}
           alt="LevelImage"
         />
       </picture>
