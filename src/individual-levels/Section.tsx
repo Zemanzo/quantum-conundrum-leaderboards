@@ -1,5 +1,5 @@
 import { ThemeProvider } from "styled-components";
-import { LevelDetails, User } from "../types";
+import { LevelDetails } from "../types";
 import Level from "./Level/Level";
 import SectionHeader from "./SectionHeader";
 

@@ -34,7 +34,9 @@ export default function LevelShifts({ record }: LevelShiftsProps) {
         </StyledEntry>
       ) : (
         <StyledNoRecord>
-          {record.shifts} shift{record.shifts !== 1 && "s"}
+          {record.shifts === -1
+            ? null
+            : `${record.shifts} shift${record.shifts !== 1 && "s"}`}
         </StyledNoRecord>
       )}
     </StyledShifts>

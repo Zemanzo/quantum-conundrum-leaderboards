@@ -15,7 +15,7 @@ export default function Header() {
         <span>Quantum Condundrum Leaderboards</span>
       </StyledH1>
       <StyledNav>
-        <HeaderButton path="/">Full game</HeaderButton>
+        <HeaderButton path="/full-game">Full game</HeaderButton>
         <HeaderButton path="/individual-levels">Individual levels</HeaderButton>
         <HeaderButton path="/about">About</HeaderButton>
         <Divider>-</Divider>

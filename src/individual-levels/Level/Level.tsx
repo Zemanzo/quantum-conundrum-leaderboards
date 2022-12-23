@@ -34,7 +34,7 @@ export default function Level({ levelDetails }: LevelProps) {
         link: shifts[apiId][0].videoLink,
       }
     : {
-        shifts: 0,
+        shifts: -1,
         userId: null,
         link: null,
       };

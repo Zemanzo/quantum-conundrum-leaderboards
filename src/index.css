@@ -1,14 +1,5 @@
 :root {
-  --bluewing: #3e88b3;
-  --bluewing-dark: #24333c;
-  --yellowwing: rgb(224, 209, 49);
-  --yellowwing-dark: #5e5e36;
-  --redwing: #b33e3e;
-  --redwing-dark: #541818;
-  --desmonddebacle: #ff9235;
-  --desmonddebacle-dark: #813c01;
-  --ikearamba: #50bc50;
-  --ikearamba-dark: #1a391a;
+  --theme-purple: #9430d1;
   --rainbow: repeating-linear-gradient(
     90deg,
     #b33e3e 0%,

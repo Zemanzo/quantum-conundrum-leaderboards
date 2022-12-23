@@ -1,3 +1,5 @@
+import { StyledFullGame } from "./FullGame.style";
+
 export default function FullGame() {
-  return <div>Nothing yet...</div>;
+  return <StyledFullGame>Still nothing...</StyledFullGame>;
 }
