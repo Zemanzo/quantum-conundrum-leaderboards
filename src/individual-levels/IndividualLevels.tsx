@@ -8,6 +8,8 @@ import {
   ApiResponseRuns,
   ApiResponseUsers,
   LevelDetails,
+  SortedRuns,
+  SortedShifts,
   WebLink,
 } from "../types";
 import { DataContext } from "./DataContext";
@@ -15,6 +17,7 @@ import { updatedShiftsReducer } from "./shiftsReducer";
 import { updatedRunsReducer } from "./runsReducer";
 import ErrorBanner from "./ErrorBanner";
 import { API_ROOT_URL } from "../constants";
+import Statistics from "./Statistics/Statistics";
 
 const groupedLevels = groupArrayByProperty(LEVELS, "wing");
 
@@ -57,13 +60,15 @@ export default function IndividualLevels() {
     `${API_ROOT_URL}/api/users`
   );
 
-  const sortedRuns = runsResponse?.runs?.reduce<
-    Record<string, ApiResponseRuns["runs"]>
-  >(getRunSortReducer<"runs">(updatedRunsState), {});
+  const sortedRuns = runsResponse?.runs?.reduce<SortedRuns>(
+    getRunSortReducer<"runs">(updatedRunsState),
+    {}
+  );
 
-  const sortedShifts = runsResponse?.shifts?.reduce<
-    Record<string, ApiResponseRuns["shifts"]>
-  >(getRunSortReducer<"shifts">(updatedShiftsState), {});
+  const sortedShifts = runsResponse?.shifts?.reduce<SortedShifts>(
+    getRunSortReducer<"shifts">(updatedShiftsState),
+    {}
+  );
 
   const usersLookup = users?.reduce<Record<string, ApiResponseUsers[number]>>(
     (lookup, user) => {
@@ -93,6 +98,7 @@ export default function IndividualLevels() {
           </div>
         </ErrorBanner>
       )}
+      <Statistics runs={sortedRuns} shifts={sortedShifts} users={usersLookup} />
       <DataContext.Provider value={dataContext}>
         {sections}
       </DataContext.Provider>

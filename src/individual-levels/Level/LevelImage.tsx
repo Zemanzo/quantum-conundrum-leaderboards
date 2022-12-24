@@ -34,7 +34,7 @@ export default function LevelImage({
   };
 
   return (
-    <StyledImage>
+    <StyledImage id={apiId}>
       <picture>
         <source
           srcSet={`https://qc.zemanzo.nl/265pThumbnails/${levelId}.jpg`}

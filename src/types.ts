@@ -58,4 +58,8 @@ export type ApiResponseUsers = Array<{
   userId: string;
   userName: string;
   webLink: WebLink;
+  color: string | null;
 }>;
+
+export type SortedRuns = Record<string, ApiResponseRuns["runs"]>;
+export type SortedShifts = Record<string, ApiResponseRuns["shifts"]>;
