@@ -169,7 +169,6 @@ function getRunWrsData(
           color: users[user].color ?? "var(--theme-purple)",
           additionalInfo: {
             User: users[user].userName,
-            userid: user,
             unit: "world record",
           },
         };

@@ -74,7 +74,17 @@ export default function CircleGraph({
                     const scrollTarget = document.getElementById(
                       additionalInfo.scrollTo
                     );
-                    scrollTarget?.scrollIntoView();
+                    scrollTarget?.scrollIntoView({
+                      behavior: "auto",
+                      block: "center",
+                      inline: "center",
+                    });
+                    setTimeout(() => {
+                      scrollTarget?.classList.add("highlight");
+                    }, 300);
+                    setTimeout(() => {
+                      scrollTarget?.classList.remove("highlight");
+                    }, 1000);
                   }
                 }}
                 ref={highlightedSegment === i ? onRefChange : undefined}

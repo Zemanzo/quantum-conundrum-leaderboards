@@ -6,6 +6,25 @@ export const StyledImage = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme.accentColor};
   padding: 2px;
+  transition: filter 0.5s;
+
+  + *,
+  + * + *,
+  + * + * + *,
+  + * + * + * + * {
+    transition: filter 0.5s;
+  }
+
+  &.highlight {
+    filter: brightness(150%) contrast(120%);
+
+    + *,
+    + * + *,
+    + * + * + *,
+    + * + * + * + * {
+      filter: brightness(150%) contrast(120%);
+    }
+  }
 
   > picture,
   img {
