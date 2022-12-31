@@ -14,6 +14,8 @@ type CircleGraphProps = {
   subText?: string;
 };
 
+const isTouchDevice = "ontouchstart" in window;
+
 export default function CircleGraph({
   values,
   mainText,
@@ -70,7 +72,7 @@ export default function CircleGraph({
                   }
                 }}
                 onClick={() => {
-                  if (additionalInfo?.scrollTo) {
+                  if (additionalInfo?.scrollTo && !isTouchDevice) {
                     const scrollTarget = document.getElementById(
                       additionalInfo.scrollTo
                     );
