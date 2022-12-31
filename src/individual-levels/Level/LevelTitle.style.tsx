@@ -23,5 +23,22 @@ export const StyledTitle = styled.a`
   @media (max-width: 1000px) {
     padding: 0 2px;
     font-size: 1.2em;
+    margin-left: 1.5ch;
+  }
+`;
+
+export const StyledLevelNumber = styled.span`
+  margin-left: -1.5ch;
+  display: none;
+  padding-right: 4px;
+  font-size: 1em;
+  font-family: "Oswald", sans-serif;
+  line-height: 1;
+  text-align: center;
+  color: ${(props) => props.theme.accentColorDark};
+  background-color: ${(props) => props.theme.accentColor};
+
+  @media (max-width: 1000px) {
+    display: inline-block;
   }
 `;

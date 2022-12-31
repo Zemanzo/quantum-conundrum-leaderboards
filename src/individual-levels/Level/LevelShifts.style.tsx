@@ -61,6 +61,10 @@ export const StyledEntry = styled.div`
     font-size: 0.9em;
   }
 
+  @media (max-width: 800px) {
+    font-size: 0.75em;
+  }
+
   @media (min-width: 1400px) {
     flex-direction: row-reverse;
     justify-content: space-between;

@@ -5,6 +5,7 @@ import {
   StyledStatistics,
   StyledWingEntry,
   StyledWings,
+  GraphsContainer,
 } from "./Statistics.style";
 import WINGS from "../../wings.json";
 import LEVELS from "../../levels.json";
@@ -98,21 +99,23 @@ export default function Statistics({ runs, shifts, users }: StatisticsProps) {
           </StyledWingEntry>
         ))}
       </StyledWings>
-      <CircleGraph
-        values={runsData}
-        mainText={formatRunsSum}
-        subText={"Total time"}
-      />
-      <CircleGraph
-        values={shiftsData}
-        mainText={formatShiftsSum}
-        subText={"Total shifts"}
-      />
-      <CircleGraph
-        values={runWrsData}
-        mainText={runsWrLeader}
-        subText={"has most time WRs"}
-      />
+      <GraphsContainer>
+        <CircleGraph
+          values={runsData}
+          mainText={formatRunsSum}
+          subText={"Total time"}
+        />
+        <CircleGraph
+          values={shiftsData}
+          mainText={formatShiftsSum}
+          subText={"Total shifts"}
+        />
+        <CircleGraph
+          values={runWrsData}
+          mainText={runsWrLeader}
+          subText={"has most time WRs"}
+        />
+      </GraphsContainer>
     </StyledStatistics>
   );
 }

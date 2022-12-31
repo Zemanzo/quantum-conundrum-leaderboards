@@ -1,10 +1,18 @@
 import styled from "styled-components";
 import { ReactComponent as QcAtomWhite } from "../images/qcatomwhite.svg";
+import { ReactComponent as DiscordLogo } from "../images/wumpus_white.svg";
 
 export const StyledLogo = styled(QcAtomWhite)`
   height: 1.15em;
   width: 1.1em;
+  min-height: 1.15em;
+  min-width: 1.1em;
   margin-right: 0.4em;
+`;
+
+export const StyledDiscordLogo = styled(DiscordLogo)`
+  height: 100%;
+  width: 100%;
 `;
 
 export const StyledHeader = styled.header`
@@ -38,7 +46,31 @@ export const StyledH1 = styled.h1`
 
 export const StyledNav = styled.nav`
   display: flex;
+  flex: 1;
   line-height: 29px;
+`;
+
+export const LinkGroup = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+`;
+export const InternalLinkGroup = styled(LinkGroup)`
+  flex: 3;
+  justify-content: flex-start;
+
+  @media (max-width: 600px) {
+    flex: 1;
+    flex-direction: column;
+  }
+`;
+export const ExternalLinkGroup = styled(LinkGroup)`
+  flex: 2;
+  justify-content: flex-end;
+
+  @media (max-width: 600px) {
+    margin-left: 16px;
+  }
 `;
 
 export const Divider = styled.span`

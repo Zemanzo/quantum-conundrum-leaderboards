@@ -49,7 +49,9 @@ export default function Level({ levelDetails }: LevelProps) {
         setIsLoadingLevel={setIsLoadingLevel}
       />
       <LevelMeta number={number} levelId={levelId} apiId={apiId} />
-      <LevelTitle webLink={webLink}>{title}</LevelTitle>
+      <LevelTitle number={number} webLink={webLink}>
+        {title}
+      </LevelTitle>
       {isLoading || isLoadingLevel ? (
         <LevelLoader />
       ) : (

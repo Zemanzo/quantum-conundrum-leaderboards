@@ -29,6 +29,18 @@ export const StyledEntry = styled.div`
     font-size: 0.9em;
   }
 
+  @media (max-width: 800px) {
+    font-size: 0.75em;
+  }
+
+  @media (max-width: 650px) {
+    &:not(:first-child) {
+      display: none;
+    }
+
+    width: 100%;
+  }
+
   > a:first-child {
     font-size: 1.59em;
     font-weight: 100;

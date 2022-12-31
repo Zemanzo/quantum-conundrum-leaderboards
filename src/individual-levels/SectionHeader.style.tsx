@@ -38,6 +38,16 @@ export const StyledHeader = styled.div`
   @media (max-width: 1000px) {
     font-size: 1em;
   }
+
+  @media (max-width: 650px) {
+    > div {
+      &:not(:first-child) {
+        display: none;
+      }
+
+      width: 100%;
+    }
+  }
 `;
 
 export const StyledShifts = styled(StyledHeader)`

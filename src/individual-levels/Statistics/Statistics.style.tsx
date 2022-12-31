@@ -20,18 +20,59 @@ export const StyledStatistics = styled.div`
     margin: 0;
   }
 
-  > svg {
+  @media (max-width: 1000px) {
+    display: block;
+    max-height: calc(100vh - 60px);
+    overflow-x: auto;
+  }
+`;
+
+export const GraphsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  flex: 1;
+
+  > svg:not(:last-of-type) {
     margin-right: 32px;
+  }
+
+  @media (max-width: 750px) {
+    display: block;
+    overflow-x: auto;
+    max-height: 40vh;
+    white-space: nowrap;
+
+    > svg {
+      display: inline-block;
+      width: 100%;
+      max-height: 40vh;
+    }
   }
 `;
 
 export const StyledWings = styled.div`
   margin-right: 32px;
 
+  @media (max-width: 1000px) {
+    margin-right: 0;
+    margin-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+
   h3 {
     margin: 0;
     font-weight: 500;
     font-size: 1.4em;
+
+    @media (max-width: 1000px) {
+      font-size: 1em;
+      min-width: 100%;
+    }
   }
 
   input[type="checkbox"] {
@@ -55,9 +96,15 @@ export const StyledWingEntry = styled.div<{ textColor: string }>`
   align-items: center;
   color: ${(props) => props.textColor};
   font-weight: 400;
+  white-space: nowrap;
 
   > label {
     cursor: pointer;
     user-select: none;
+  }
+
+  @media (max-width: 1000px) {
+    font-size: 0.7em;
+    padding: 4px;
   }
 `;

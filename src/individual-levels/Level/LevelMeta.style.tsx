@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-export const LevelNumber = styled.div``;
-
 export const LevelId = styled.div`
   visibility: hidden;
   height: 0px;
@@ -31,13 +29,8 @@ export const StyledMeta = styled.div`
   }
 
   @media (max-width: 1000px) {
-    padding: 0 2px;
-    font-size: 1.2em;
-
-    ${LevelId} {
-      display: none;
-      width: 0px;
-      font-size: 0.8em;
-    }
+    visibility: hidden;
+    width: 0;
+    padding: 0;
   }
 `;
