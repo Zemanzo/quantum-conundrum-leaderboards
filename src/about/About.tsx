@@ -72,7 +72,8 @@ export default function About() {
       <p>
         There's no known way to open a console of sorts in the game, but you can
         still run commands through the bindings file. I've summed up my findings
-        so far in <a href="https://pastebin.com/yCuUERNL">this pastebin</a>.
+        so far in{" "}
+        <a href={process.env.PUBLIC_URL + "/keybindings.txt"}>this file</a>.
         Don't cheat.
       </p>
     </StyledAbout>

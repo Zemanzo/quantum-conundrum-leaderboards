@@ -1,0 +1,94 @@
+For these binds to work, you have to add it to the file "BaseInput.ini" located in "C:\Program Files (x86)\Steam\SteamApps\common\Quantum Conundrum\Engine\Config" (or alike). Paste everything below "; --- General bindings" for it to work. This document contains all bindings found so far and also some tested ones. A way to enable the console has not been found yet, so everything has to be tested through the bindings file.
+
+Most important ones would be these for restarting the level, going to main menu and for visualizing triggers n such:
+Bindings=(Name="NumPadSeven",Command="Show VOLUMES") 
+Bindings=(Name="NumPadEight",Command="Show BOUNDS") 
+Bindings=(Name="NumPadNine",Command="Show COLLISION") 
+Bindings=(Name="F1",Command="RestartLevel")
+Bindings=(Name="T",Command="Disconnect")
+
+MAKE SURE YOU DO NOT ACCIDENTALLY USE CHEAT-LIKE BINDS DURING A RUN. CHANGE THE KEY IT'S BOUND TO BY CHANGING 'Name="xxx"'.
+
+====================================== FULL LIST ======================================
+
+#Custom bindings start
+
+	#Occupied keys:
+	; F 1 2 3 4 5 
+	; NumPad  1 2 3   5 6 7 8 9
+	; -
+	
+	# Routing / testing binds
+		# Works 
+			; Toggles FPS in top right corner
+			Bindings=(Name="NumPadSix",Command="stat fps")
+			; Sets camera to First Person mode
+			Bindings=(Name="NumPadOne",Command="Camera FirstPerson")
+			; Sets camera to Third Person mode
+			Bindings=(Name="NumPadTwo",Command="Camera ThirdPerson")
+			; Toggles HUD visibility
+			Bindings=(Name="NumPadThree",Command="showhud")
+			; Toggles triggers, level bounds and weird blue lines too sometimes...
+			Bindings=(Name="NumPadSeven",Command="Show VOLUMES") 
+			; Toggles the weird pull fields around objects and shows light sources
+			Bindings=(Name="NumPadEight",Command="Show BOUNDS") 
+			; Toggles hitboxes on physics props
+			Bindings=(Name="NumPadNine",Command="Show COLLISION") 
+			; Sets your speed to 0 (allowing for weird glide moves when falling and mashing this bind)
+			Bindings=(Name="Subtract",Command="Walk") 
+			; Toggles RIGIDBODY visibility, useless though
+			Bindings=(Name="NumPadFive",Command="Show RIGIDBODY")
+			; Shows list of levels..?
+			Bindings=(Name="F3",Command="Stat LEVELS") 
+			; Shows dynamic models only
+			Bindings=(Name="F4",Command="Show STATICMESHES") 
+			; Hides all dynamic models
+			Bindings=(Name="F5",Command="Show SKELETALMESHES") 
+			
+		# Untested
+			
+			
+			
+		# Doesn't work
+			; Bindings=(Name="F8",Command="Stat Render")
+			; Bindings=(Name="F9",Command="Stat None")
+			; Bindings=(Name="Slash",Command="Fly") 
+			; Bindings=(Name="Add",Command="Ghost") 
+			; Bindings=(Name="NumPadFour",Command="Show BSP")
+			; Bindings=(Name="F8",Command="NXVIS") 
+			; Bindings=(Name="F9",Command="NXVIS COLLISION") 
+			; Bindings=(Name="F10",Command="NXVIS CONTACTS") 
+			; Bindings=(Name="F11",Command="NXVIS JOINTWORLDAXES")
+			; Bindings=(Name="F5",Command="Show TERRAIN") 
+			; Bindings=(Name="F6",Command="Show TERRAINPATCHES") 
+			; Bindings=(Name="F7",Command="exec commands") 
+			; Bindings=(Name="F6",Command="setJumpZ 4000") 
+			; Bindings=(Name="F6",Command="setgravity -100") 
+			; Bindings=(Name="NumPadFour",Command="noclip")
+
+
+	#Menu bindings!
+		# Works 
+			; Restarts level (duh)
+			Bindings=(Name="F1",Command="RestartLevel")
+			; To main menu
+			Bindings=(Name="T",Command="Disconnect")
+			
+		# Untested
+			
+			
+
+		# Doesn't work 
+			; Bindings=(Name="F7",Command="RestartFromLastCheckpoint")
+			; Bindings=(Name="F8",Command="Checkpoint")
+			; Bindings=(Name="F9",Command="Continue")
+			; Bindings=(Name="F7",Command="RestartFromCheckpoint")
+			; Bindings=(Name="F8",Command="RestartCheckpoint")
+			; Bindings=(Name="F9",Command="MainMenu")
+			; Bindings=(Name="F3",Command="Reconnect")
+			; Bindings=(Name="F4",Command="LoadGameState")
+			; Bindings=(Name="F5",Command="LoadGameState autosave")
+			; Bindings=(Name="F6",Command="LoadGameState autosave0")
+			; Bindings=(Name="F7",Command="LoadGameFromSlot 0")
+
+#Custom bindings end
