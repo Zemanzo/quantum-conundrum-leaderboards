@@ -6,6 +6,10 @@ export const StyledTimes = styled.div`
   color: ${(props) => props.theme.textColor};
   background-color: ${(props) => props.theme.accentColor};
   padding: 0px 8px;
+
+  @media (max-width: 650px) {
+    padding: 0;
+  }
 `;
 
 export const StyledEntry = styled.div`

@@ -45,59 +45,66 @@ export default function CircleGraph({
         }}
       >
         <g>
-          {values.map(({ amount, color, additionalInfo }, i) => {
-            const size = (amount / sum) * 360;
-            const d = generateArcPath(startAngle, size + startAngle, 100, 70);
-            startAngle += size;
-            const opacity =
-              highlightedSegment !== null
-                ? highlightedSegment === i
-                  ? 1
-                  : 0.6
-                : 1;
-            return (
-              <path
-                d={d}
-                fill={color}
-                opacity={opacity}
-                key={i}
-                stroke="#161616"
-                strokeWidth={0.5}
-                onMouseEnter={() => {
-                  setHighlightedSegment(i);
-                }}
-                onMouseLeave={() => {
-                  if (highlightedSegment === i) {
-                    setHighlightedSegment(null);
-                  }
-                }}
-                onClick={() => {
-                  if (additionalInfo?.scrollTo && !isTouchDevice) {
-                    const scrollTarget = document.getElementById(
-                      additionalInfo.scrollTo
-                    );
-                    scrollTarget?.scrollIntoView({
-                      behavior: "auto",
-                      block: "center",
-                      inline: "center",
-                    });
-                    setTimeout(() => {
-                      scrollTarget?.classList.add("highlight");
-                    }, 300);
-                    setTimeout(() => {
-                      scrollTarget?.classList.remove("highlight");
-                    }, 1000);
-                  }
-                }}
-                ref={highlightedSegment === i ? onRefChange : undefined}
-                style={additionalInfo?.scrollTo && { cursor: "pointer" }}
-              />
-            );
-          })}
+          {values.length === 1 ? (
+            <>
+              <circle fill={values[0].color} cx="100" cy="100" r="100" />
+              <circle fill="#0c090c" cx="100" cy="100" r="70" />
+            </>
+          ) : (
+            values.map(({ amount, color, additionalInfo }, i) => {
+              const size = (amount / sum) * 360;
+              const d = generateArcPath(startAngle, size + startAngle, 100, 70);
+              startAngle += size;
+              const opacity =
+                highlightedSegment !== null
+                  ? highlightedSegment === i
+                    ? 1
+                    : 0.6
+                  : 1;
+              return (
+                <path
+                  d={d}
+                  fill={color}
+                  opacity={opacity}
+                  key={i}
+                  stroke="#161616"
+                  strokeWidth={0.5}
+                  onMouseEnter={() => {
+                    setHighlightedSegment(i);
+                  }}
+                  onMouseLeave={() => {
+                    if (highlightedSegment === i) {
+                      setHighlightedSegment(null);
+                    }
+                  }}
+                  onClick={() => {
+                    if (additionalInfo?.scrollTo && !isTouchDevice) {
+                      const scrollTarget = document.getElementById(
+                        additionalInfo.scrollTo
+                      );
+                      scrollTarget?.scrollIntoView({
+                        behavior: "auto",
+                        block: "center",
+                        inline: "center",
+                      });
+                      setTimeout(() => {
+                        scrollTarget?.classList.add("highlight");
+                      }, 300);
+                      setTimeout(() => {
+                        scrollTarget?.classList.remove("highlight");
+                      }, 1000);
+                    }
+                  }}
+                  ref={highlightedSegment === i ? onRefChange : undefined}
+                  style={additionalInfo?.scrollTo && { cursor: "pointer" }}
+                />
+              );
+            })
+          )}
         </g>
         <StyledMainText
           x="50%"
-          y="50%"
+          y="47%"
           dominantBaseline="middle"
           textAnchor="middle"
         >
@@ -110,7 +117,7 @@ export default function CircleGraph({
         {subText && (
           <StyledSubText
             x="50%"
-            y="60%"
+            y="57%"
             dominantBaseline="middle"
             textAnchor="middle"
           >

@@ -113,7 +113,9 @@ export default function Statistics({ runs, shifts, users }: StatisticsProps) {
         <CircleGraph
           values={runWrsData}
           mainText={runsWrLeader}
-          subText={"has most time WRs"}
+          subText={
+            runWrsData.length === 1 ? "has ALL time WRs" : "has most time WRs"
+          }
         />
       </GraphsContainer>
     </StyledStatistics>
