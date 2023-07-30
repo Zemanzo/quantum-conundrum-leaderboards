@@ -10,7 +10,6 @@ import {
   LevelDetails,
   SortedRuns,
   SortedShifts,
-  WebLink,
 } from "../types";
 import { DataContext } from "./DataContext";
 import { updatedShiftsReducer } from "./shiftsReducer";
@@ -27,7 +26,7 @@ const sections = Object.entries(groupedLevels).map(([sectionId, levels]) => {
     number: level.id + 1,
     levelId: level.wingId,
     apiId: level.apiId,
-    webLink: level.speedruncomLink as WebLink,
+    webLink: `https://www.speedrun.com/qc?x=${level.apiId}-zd30pzed`,
     title: level.title,
   }));
 
