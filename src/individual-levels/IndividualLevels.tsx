@@ -26,7 +26,7 @@ const sections = Object.entries(groupedLevels).map(([sectionId, levels]) => {
     number: level.id + 1,
     levelId: level.wingId,
     apiId: level.apiId,
-    webLink: `https://www.speedrun.com/qc?x=${level.apiId}-zd30pzed`,
+    webLink: `https://www.speedrun.com/qc?x=l_${level.apiId}-zd30pzed`,
     title: level.title,
   }));
 
