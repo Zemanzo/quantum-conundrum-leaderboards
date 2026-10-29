@@ -61,7 +61,8 @@ export default function Statistics({ runs, shifts, users }: StatisticsProps) {
     };
   });
   const runWrsData = getRunWrsData(runs, enabledSections, users);
-  const runsWrLeader = runWrsData[runWrsData.length - 1].additionalInfo.User;
+  const runsWrLeader =
+    runWrsData[runWrsData.length - 1]?.additionalInfo.User ?? "Nobody";
   const onlyOneEnabledSection = Boolean(
     Object.values(enabledSections).reduce<number>(
       (acc, isEnabled, index, arr) => {
@@ -171,9 +172,9 @@ function getRunWrsData(
       if (!acc[userIndex[user]]) {
         acc[userIndex[user]] = {
           amount: 0,
-          color: users[user].color ?? "var(--theme-purple)",
+          color: users[user]?.color ?? "var(--theme-purple)",
           additionalInfo: {
-            User: users[user].userName,
+            User: users[user]?.userName ?? user,
             unit: "world record",
           },
         };

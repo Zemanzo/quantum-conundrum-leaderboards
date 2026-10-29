@@ -25,18 +25,20 @@ export async function initialize(db: Database) {
   }
 
   const currentTimeInSeconds = Date.now() / 1000;
-  const requiresUpdate = db.preparedStatements.select.allMeta
+  const lastUpdates = db.preparedStatements.select.allMeta
     .all()
-    .reduce<Record<string, boolean>>((meta, entry: any) => {
-      meta[entry.tableId] =
-        entry.lastUpdate < currentTimeInSeconds - TIME_UNTIL_UPDATE;
+    .reduce<Record<string, number>>((meta, entry: any) => {
+      meta[entry.tableId] = entry.lastUpdate;
       return meta;
     }, {});
+  // Tables without a last update have never been filled, e.g. in a new database.
+  const requiresUpdate = (tableId: string) =>
+    !(lastUpdates[tableId] >= currentTimeInSeconds - TIME_UNTIL_UPDATE);
 
-  if (requiresUpdate.runs) {
+  if (requiresUpdate("runs")) {
     await updateAllRuns(db);
   }
-  if (requiresUpdate.users) {
+  if (requiresUpdate("users")) {
     await updateAllUsers(db);
   }
 }
