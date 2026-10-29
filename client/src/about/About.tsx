@@ -15,21 +15,10 @@ export default function About() {
         a list that I manually edit for the shifts.
       </p>
       <p>
-        The code is open source, you can find it on GitHub:
-        <ul>
-          <li>
-            Front-end:{" "}
-            <a href="https://github.com/Zemanzo/quantum-conundrum-leaderboards">
-              https://github.com/Zemanzo/quantum-conundrum-leaderboards
-            </a>
-          </li>
-          <li>
-            Back-end:{" "}
-            <a href="https://github.com/Zemanzo/quantum-conundrum-leaderboards-server">
-              https://github.com/Zemanzo/quantum-conundrum-leaderboards-server
-            </a>
-          </li>
-        </ul>
+        The code is open source, you can find it on GitHub:{" "}
+        <a href="https://github.com/Zemanzo/quantum-conundrum-leaderboards">
+          https://github.com/Zemanzo/quantum-conundrum-leaderboards
+        </a>
       </p>
       <h3>Least Shifts</h3>
       <p>
@@ -73,7 +62,7 @@ export default function About() {
         There's no known way to open a console of sorts in the game, but you can
         still run commands through the bindings file. I've summed up my findings
         so far in{" "}
-        <a href={process.env.PUBLIC_URL + "/keybindings.txt"}>this file</a>.
+        <a href="/keybindings.txt">this file</a>.
         Don't cheat.
       </p>
     </StyledAbout>

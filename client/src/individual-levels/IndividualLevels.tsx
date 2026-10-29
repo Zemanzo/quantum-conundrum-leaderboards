@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import useFetch from "react-fetch-hook";
+import useFetch from "../useFetch";
 import { StyledLevels } from "./IndividualLevels.style";
 import LEVELS from "../levels.json";
 import WINGS from "../wings.json";

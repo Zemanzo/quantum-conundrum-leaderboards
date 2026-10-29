@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { ReactComponent as QcAtomWhite } from "../images/qcatomwhite.svg";
-import { ReactComponent as DiscordLogo } from "../images/wumpus_white.svg";
+import qcAtomWhite from "../images/qcatomwhite.svg";
+import discordLogo from "../images/wumpus_white.svg";
 
-export const StyledLogo = styled(QcAtomWhite)`
+export const StyledLogo = styled.img.attrs({ src: qcAtomWhite, alt: "" })`
   height: 1.15em;
   width: 1.1em;
   min-height: 1.15em;
@@ -10,7 +10,7 @@ export const StyledLogo = styled(QcAtomWhite)`
   margin-right: 0.4em;
 `;
 
-export const StyledDiscordLogo = styled(DiscordLogo)`
+export const StyledDiscordLogo = styled.img.attrs({ src: discordLogo, alt: "Discord" })`
   height: 100%;
   width: 100%;
 `;

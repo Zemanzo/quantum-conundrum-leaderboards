@@ -1,5 +1,5 @@
 import { ThemeProvider } from "styled-components";
-import { LevelDetails } from "../types";
+import { LevelDetails, SectionTheme } from "../types";
 import Level from "./Level/Level";
 import SectionHeader from "./SectionHeader";
 
@@ -7,12 +7,6 @@ const fallBackTheme = {
   accentColor: "#eee",
   accentColorDark: "#444",
   textColor: "#222222",
-};
-
-type SectionTheme = {
-  accentColor: string;
-  accentColorDark: string;
-  textColor: string;
 };
 
 type SectionProps = {

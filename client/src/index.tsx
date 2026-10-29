@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Navigate, RouteObject, RouterProvider } from "react-router";
-import { createBrowserRouter } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouteObject,
+  RouterProvider,
+} from "react-router";
 import About from "./about/About";
 import FullGame from "./full-game/FullGame";
 import "./index.css";

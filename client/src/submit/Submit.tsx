@@ -44,6 +44,7 @@ export default function Submit() {
       setSubmitRequestState("⏳");
       fetch(`${API_ROOT_URL}/api/submit`, {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           levelId: selectedLevel,
           userId: selectedUser,

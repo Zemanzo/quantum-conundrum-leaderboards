@@ -63,3 +63,9 @@ export type ApiResponseUsers = Array<{
 
 export type SortedRuns = Record<string, ApiResponseRuns["runs"]>;
 export type SortedShifts = Record<string, ApiResponseRuns["shifts"]>;
+
+export type SectionTheme = {
+  accentColor: string;
+  accentColorDark: string;
+  textColor: string;
+};
