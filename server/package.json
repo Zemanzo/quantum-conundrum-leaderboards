@@ -1,41 +1,23 @@
 {
   "name": "quantum-conundrum-leaderboards-server",
   "version": "1.0.0",
+  "private": true,
   "description": "The backend for quantum-conundrum-leaderboards",
   "author": {
     "name": "Merlijn van der Kamp",
     "url": "https://merlijn.me"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/zemanzo/quantum-conundrum-leaderboards-server.git"
-  },
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist/"
-  ],
   "scripts": {
-    "start": "pnpm build && node dist/index.js",
     "build": "tsc",
-    "lint": "eslint --ext .ts --fix src/**/*.ts test/**/*.ts"
-  },
-  "devDependencies": {
-    "@types/bcrypt": "6.0.0",
-    "@types/better-sqlite3": "^7.6.13",
-    "@types/node": "25.8.0",
-    "@types/node-schedule": "^2.1.8",
-    "@typescript-eslint/eslint-plugin": "8.59.3",
-    "@typescript-eslint/parser": "8.59.3",
-    "eslint": "10.3.0",
-    "ts-node": "^10.9.2",
-    "typescript": "6.0.3"
+    "start": "pnpm build && node --disable-warning=ExperimentalWarning dist/index.js"
   },
   "dependencies": {
-    "@fastify/cors": "11.2.0",
-    "bcrypt": "6.0.0",
-    "better-sqlite3": "12.10.0",
-    "fastify": "5.8.5",
-    "node-schedule": "^2.1.1"
+    "@fastify/static": "^10.1.7",
+    "fastify": "^5.12.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "typescript": "^6.0.3"
   }
 }

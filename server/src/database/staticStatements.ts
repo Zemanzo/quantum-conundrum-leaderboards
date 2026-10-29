@@ -118,6 +118,7 @@ export const staticStatements = {
   select: {
     // Levels
     allLevels: `SELECT * FROM levels`,
+    level: `SELECT apiId FROM levels WHERE apiId = ?`,
     levelCount: `SELECT Count(*) FROM levels`,
     // Runs
     allFastestRuns: `

@@ -1,8 +1,4 @@
-import path from "path";
-import sqlite, {
-  Database as BetterSqlite3Database,
-  Statement,
-} from "better-sqlite3";
+import { DatabaseSync, StatementSync } from "node:sqlite";
 import { createStatements, staticStatements } from "./staticStatements";
 
 type RecursiveObject = { [key: string]: string | RecursiveObject };
@@ -13,13 +9,13 @@ type RecursiveReplace<TSource, TReplacement> = {
 };
 
 export default class Database {
-  sqliteDatabase: BetterSqlite3Database;
-  createStatements: RecursiveReplace<typeof createStatements, Statement>;
-  preparedStatements: RecursiveReplace<typeof staticStatements, Statement>;
+  sqliteDatabase: DatabaseSync;
+  createStatements: RecursiveReplace<typeof createStatements, StatementSync>;
+  preparedStatements: RecursiveReplace<typeof staticStatements, StatementSync>;
 
-  constructor(name: string) {
+  constructor(filePath: string) {
     try {
-      this.sqliteDatabase = sqlite(path.resolve(__dirname, `${name}.db3`));
+      this.sqliteDatabase = new DatabaseSync(filePath);
       this.createStatements = this.recursivePrepare(createStatements);
       this.createTables();
       this.preparedStatements = this.recursivePrepare(staticStatements);
@@ -47,7 +43,7 @@ export default class Database {
 
   private recursivePrepare<TSource extends RecursiveObject>(
     statements: TSource,
-  ): RecursiveReplace<TSource, Statement> {
+  ): RecursiveReplace<TSource, StatementSync> {
     const prepared: any = {};
     for (const key in statements) {
       const entry = statements[key];

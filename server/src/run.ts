@@ -1,6 +1,7 @@
 import type Database from "./database/Database";
 import Connector from "./connector/Connector";
 import shiftsJson from "./shifts.json";
+import { toWebLink } from "./util";
 
 /**
  * How much time in seconds
@@ -18,7 +19,7 @@ export async function initialize(db: Database) {
     const levels = await connector.getLevels();
     db.beginTransaction();
     for (const level of levels.data) {
-      db.preparedStatements.insert.level.run([level.id, level.name]);
+      db.preparedStatements.insert.level.run(level.id, level.name);
     }
     db.commitTransaction();
   }
@@ -62,17 +63,19 @@ export async function addLevelRunsToDatabase(level: string, db: Database) {
       const runDetails = [
         run.id,
         run.level,
-        run.players[0].id,
+        run.players[0]?.id ?? null,
         run.values.r8rg5zrn === "5q8ze9gq" ? 0 : 1, // lag abuse, "5q8ze9gq" is NO lag abuse used.
         run.times.primary_t,
         run.date || run.submitted.substring(0, run.submitted.indexOf("T")),
-        run?.videos?.links?.[0]?.uri ??
-          (run?.videos?.text ? `https://${run.videos.text}` : ""),
+        toWebLink(
+          run?.videos?.links?.[0]?.uri ??
+            (run?.videos?.text ? `https://${run.videos.text}` : ""),
+        ) ?? "",
       ] as const;
-      db.preparedStatements.insert.run.run(runDetails);
+      db.preparedStatements.insert.run.run(...runDetails);
       formattedRuns.push(createRunObject(runDetails));
     } else {
-      db.preparedStatements.delete.run.run([run.id]);
+      db.preparedStatements.delete.run.run(run.id);
     }
   }
 
@@ -80,7 +83,15 @@ export async function addLevelRunsToDatabase(level: string, db: Database) {
 }
 
 function createRunObject(
-  values: readonly [string, string, string, 0 | 1, number, string, string],
+  values: readonly [
+    string,
+    string,
+    string | null,
+    0 | 1,
+    number,
+    string,
+    string,
+  ],
 ) {
   return {
     apiId: values[0],
@@ -115,12 +126,12 @@ export async function updateAllUsers(db: Database) {
 async function addUsersToDatabase(userId: string, db: Database) {
   const { data: user } = await connector.getUser(userId);
 
-  db.preparedStatements.insert.user.run([
+  db.preparedStatements.insert.user.run(
     user.id,
     user.names.international,
     user.weblink,
-    getUserColor(user),
-  ]);
+    getUserColor(user) ?? null,
+  );
 }
 
 function getUserColor(
@@ -158,13 +169,13 @@ function insertFromJSON(db: Database) {
     const { userId } = users.find((user) => user.userName === entry.user) ?? {
       userId: entry.user,
     };
-    db.preparedStatements.insert.shift.run([
+    db.preparedStatements.insert.shift.run(
       levels[i].apiId,
       userId,
       0,
       entry.amount,
       Date.now(),
-      entry.shiftUrl,
-    ]);
+      entry.shiftUrl ?? null,
+    );
   }
 }

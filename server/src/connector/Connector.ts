@@ -1,5 +1,3 @@
-/// <reference lib="dom" />
-
 type LevelsResponse = {
   data: Array<{
     id: string;
@@ -25,7 +23,10 @@ type RunsResponse = {
       status: string;
     };
     players: Array<{
-      id: string;
+      /**
+       * Guest players have no ID, only a name.
+       */
+      id?: string;
     }>;
     date: string;
     submitted: string;
@@ -98,7 +99,7 @@ export default class Connector {
       );
     }
 
-    return response.json();
+    return response.json() as Promise<TResponse>;
   }
 
   getLevelRuns(levelId: string) {
