@@ -1,0 +1,11 @@
+**/node_modules
+**/dist
+**/*.db3
+.git
+.vscode
+.env
+deploy
+Dockerfile
+.dockerignore
+*.tar
+*.tar.xz

@@ -1,0 +1,7 @@
+packages:
+  - client
+  - server
+
+# Don't install versions that were published less than 7 days ago, so a
+# compromised release has time to be caught before it ends up here.
+minimumReleaseAge: 10080
